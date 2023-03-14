@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2130789960}
-  - component: {fileID: 2130789959}
+  - component: {fileID: 2130789961}
   m_Layer: 0
   m_Name: LandGod
   m_TagString: Untagged
@@ -224,21 +224,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2130789959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2130789958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aebbe8c417f2e4f41a172b6e10a6fb4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSizeX: 30
-  gridSizeY: 30
-  hexTile: {fileID: 8835316733983955300, guid: 34357535c08aaba44adecefc12fe462b, type: 3}
 --- !u!4 &2130789960
 Transform:
   m_ObjectHideFlags: 0
@@ -254,3 +239,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2130789961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130789958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278a12faefe84294a9edc3eb2e370a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSizeX: 10
+  gridSizeY: 10
+  squareTile: {fileID: 641115777327050110, guid: 26cff8fc3a5c8e84aa8f8854d0e5609c, type: 3}

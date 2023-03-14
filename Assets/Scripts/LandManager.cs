@@ -2,50 +2,57 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 
 public class LandManager : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
-    public Sprite[] spriteArray; [Tooltip("Add sprites Here")]
-    int randomNumber;
-    string tileName;
-    
-    
+    [SerializeField] int gridSizeX;
+    [SerializeField] int gridSizeY;
+    [SerializeField] GameObject squareTile;
+    float offsetX = 1.0f;
+    float offsetY = 1.0f;
+    float startOfRow = 0f;
+    float startOfColumn = 0f;
+    Tile tile;
 
 
-
+    Vector3 spawnPoint;
     // Start is called before the first frame update
-
     void Start()
     {
+        CraftGrid();
 
-        randomNumber = Random.Range(0, 4);
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        ChangeSprite();
-        tileName = GetComponent<SpriteRenderer>().sprite.name;
-        nameTile();
+
     }
 
-   
-
-
-    private void ChangeSprite()
+    private void CraftGrid()
     {
-        spriteRenderer.sprite = spriteArray[randomNumber];
-    }
+        // spawnPoint = new Vector3(0, 0, 0);
 
-    public void nameTile()
-    {
-        this.gameObject.name = tileName;
-    }
+        for (int i = 0; i < gridSizeX; i++)
+        {
 
+            for (int j = 0; j < gridSizeY; j++)
+            {
+                spawnPoint = new Vector3(startOfRow, startOfColumn, 0); // move to bottom if doesnt work
+                Instantiate(squareTile, spawnPoint, Quaternion.identity);
+                startOfColumn = startOfColumn + offsetY; // adds on the width of one tile to the y axis.
+            }
+            startOfRow = startOfRow + offsetX;
+            startOfColumn = 0f;
+        }
+    }
 
 
     // Update is called once per frame
     void Update()
     {
-        
+
+
+
+
     }
+
 
 }
