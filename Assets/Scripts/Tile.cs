@@ -10,7 +10,7 @@ public class Tile : MonoBehaviour
     private SpriteRenderer spriteRenderer;                      
     public Sprite[] spriteArray;[Tooltip("Add sprites Here")]   
     int randomNumber;                                          
-    string tileName;
+    public string tileName; // use get set method in future
     bool isLand;
     // vars for labelling the tiles with thier coordinates      //
     TextMeshPro tileUI;                                                                 
@@ -18,25 +18,32 @@ public class Tile : MonoBehaviour
     float xCoord;
     float yCoord;
     string writtenCoords;
-    // vars for getting the neighbouring tiles                  //
-    public GameObject tileNeighbourUp;
-    public GameObject tileNeighbourDown;
-    public GameObject tileNeighbourLeft;
-    public GameObject tileNeighbourRight;
+    public GameObject[] tileNeighbours;
+
+    // vars for getting the neighbouring tiles                  //This could be a class.
+    public GameObject leftNeighbor;
+    public GameObject rightNeighbor;
+    public GameObject topNeighbor;
+    public GameObject bottomNeighbor;
+    public LandManager landManager;
+   
 
 
+    public
 
-    void Start()
+
+    void Awake()
     {
 
         randomNumber = Random.Range(0, 4);
         spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
-        tileName = GetComponentInParent<SpriteRenderer>().sprite.name;
+        //tileName = GetComponentInParent<SpriteRenderer>().sprite.name;    // likely not needed as called in change sprite method 
         tileUI = GetComponent<TextMeshPro>();
+        landManager = FindObjectOfType<LandManager>();
         ChangeSprite();
-        NameTile();
+        NameTile();                                                         // Redundant i think - as this is managed by the changeSprite method
         GetCoordinates();
-        getNeighbours();
+
     }
 
     private void GetCoordinates()
@@ -51,29 +58,44 @@ public class Tile : MonoBehaviour
         //Debug.Log(writtenCoords);
     }
 
+    public void SetNeighbours(GameObject[] neighbours)
+    {
+        tileNeighbours = neighbours;
+
+    }
+
+
+    public void setLandOrSea(bool isLand)
+    {
+        if (isLand == true)
+        {
+            Debug.Log("This tile is" + writtenCoords);
+            spriteRenderer.sprite = spriteArray[0];
+        }
+        else
+        {
+            spriteRenderer.sprite = spriteArray[1];
+        }
+    }
+
+
     private void ChangeSprite()
     {
         spriteRenderer.sprite = spriteArray[randomNumber];
+        tileName = GetComponentInParent<SpriteRenderer>().sprite.name;
     }
 
     public void NameTile()
     {
-        gameObject.transform.root.name = tileName;
+        gameObject.transform.root.name = tileName; //this needs fixing as every tile is called grass - i suspect this is due to not naming the sprites.
     }
 
-    public void getNeighbours()
+
+
+    void Update()
     {
-        BoundsInt myBounds = new BoundsInt(-1, -1, 0, 3, 3, 1);
-
-        foreach (var b in myBounds.allPositionsWithin)
-        {
-            Vector3 worldPos = transform.TransformPoint(b);
-            Debug.Log(worldPos);
-        } 
-
-        //Debug.Log(writtenCoords);
-        //Debug.Log(myBounds.allPositionsWithin);
-
-
+          
     }
+
+   
 }
