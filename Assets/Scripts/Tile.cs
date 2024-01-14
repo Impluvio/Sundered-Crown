@@ -11,7 +11,7 @@ public class Tile : MonoBehaviour
     public Sprite[] spriteArray;[Tooltip("Add sprites Here")]   
     int randomNumber;                                          
     public string tileName; // use get set method in future
-    bool isLand = false;
+    public bool isLand = false;
     // vars for labelling the tiles with thier coordinates      //
     TextMeshPro tileUI;                                                                 
     Vector2 tileCoordinates;                                    
@@ -64,11 +64,11 @@ public class Tile : MonoBehaviour
         {
             
             spriteRenderer.sprite = spriteArray[0];
-            Debug.Log("This tile is" + writtenCoords +"sprite changed");
+            //Debug.Log("This tile is" + writtenCoords +"sprite changed");
         }
         else
         {
-            spriteRenderer.sprite = spriteArray[3];
+            spriteRenderer.sprite = spriteArray[2];
         }
     }
 
@@ -81,7 +81,7 @@ public class Tile : MonoBehaviour
         }
         else
         {
-            spriteRenderer.sprite = spriteArray[3];
+            spriteRenderer.sprite = spriteArray[2];
         }
         
         //tileName = GetComponentInParent<SpriteRenderer>().sprite.name;

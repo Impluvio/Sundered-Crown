@@ -11,7 +11,11 @@ public class LandManager : MonoBehaviour
     [SerializeField] int gridSizeY;                                     // the grid to iterate on Y
     [SerializeField] GameObject squareTile;                             // Tile prefab
     [SerializeField] int noOfLargeWalkers;                              // number of random walkers generated
-    [SerializeField] int noOfSmallWalkers; 
+    [SerializeField] int noOfSmallWalkers;
+    [SerializeField] int cellAutIterations;
+    [SerializeField] int numberOfMountainWalkers = 4;
+    private int[,] heightMap;
+    private int walkerSteps; 
     float offsetX = 1.0f;                                               // The constant that the grid moves on by as the loop runs
     float offsetY = 1.0f;                                               // see above but for Y
     float startOfRow = 0f;                                              // starting point
@@ -19,6 +23,9 @@ public class LandManager : MonoBehaviour
     Tile tile;
     public Dictionary<Vector3Int, GameObject> coordObjDictionary = new Dictionary<Vector3Int, GameObject>();
     GameObject objectToBeSpawned;
+
+
+
 
     //GameObject upNeighbourTile;
     //GameObject downNeighbourTile; 
@@ -62,7 +69,7 @@ public class LandManager : MonoBehaviour
 
 
 
-    }
+    } // functions normally
 
     private void SetTileNeighbours()
     {
@@ -137,7 +144,7 @@ public class LandManager : MonoBehaviour
 
         }
 
-    }
+    } // functions normally 
 
     private GameObject FindObjectByKey(Vector3Int key)
     {
@@ -149,7 +156,7 @@ public class LandManager : MonoBehaviour
         {
             return null;
         }
-    }
+    } // functions normally
 
     private void GenerateLandMasses()
     {
@@ -165,8 +172,10 @@ public class LandManager : MonoBehaviour
         {
             RandomWalker(smallWalker);
         }
-    }
 
+        CellularAutomata(cellAutIterations);
+
+    } //functions normally
 
     private void RandomWalker(int maxSteps)
     {
@@ -203,7 +212,7 @@ public class LandManager : MonoBehaviour
         }
 
 
-    }
+    } // functions normally (rename) // Sets number of walkers to create the map
 
     private GameObject MoveToNeighbour(GameObject currentTile, int direction)
     {
@@ -221,44 +230,107 @@ public class LandManager : MonoBehaviour
         
             return currentTile;
 
+    } // functions normally (rename) 
+
+    private void CellularAutomata(int cellAutIterations)
+    {
+        for (int i = 0; i < cellAutIterations; i++)
+        {
+            Dictionary<Vector3Int, GameObject> newState = new Dictionary<Vector3Int, GameObject>(coordObjDictionary);
+
+            foreach (KeyValuePair<Vector3Int, GameObject> pair in coordObjDictionary)
+            {
+                Vector3Int coordinates = pair.Key;
+                GameObject tileObject = pair.Value;
+                
+                Tile currentTile = tileObject.GetComponentInChildren<Tile>();
+                int landCount = CountLandNeighbours(coordinates); // this is the source of a null error 
+
+                if (landCount >= 3)
+                {
+                    newState[coordinates].GetComponentInChildren<Tile>().setLandOrSea(true);
+                }
+                if(landCount < 2)
+                {
+                    newState[coordinates].GetComponentInChildren<Tile>().setLandOrSea(false);
+                }
+
+            }
+
+            coordObjDictionary = new Dictionary<Vector3Int, GameObject>(newState);
+
+            foreach (var pair in newState)
+            {
+                Debug.Log($"Key: {pair:Key}, Value: {pair.Value}");
+            }
+
+        }
+    } // functions normally 
+
+    private int CountLandNeighbours(Vector3Int coordinates) //counts the neighbours
+    {
+        int landCount = 0;
+
+        Tile currentTileToCountNeighboursFor = coordObjDictionary[coordinates].GetComponentInChildren<Tile>();
+
+        Debug.Log("hits post landCount");
+        foreach(GameObject neighbour in currentTileToCountNeighboursFor.tileNeighbours)
+        {
+
+            Debug.Log("enters foreach loop countlandneighbours");
+            if (neighbour != null)
+            {
+                Tile neighbourTile = neighbour.GetComponentInChildren<Tile>();
+
+                if (neighbour != null && neighbourTile.isLand)
+                {
+                    Debug.Log("enters if statement");
+                    landCount++;
+                    Debug.Log("land count : " + landCount);
+                }
+            }
+                
+        }
+        return landCount;
     }
 
+    private void GenerateMountainLines() // being developed 
+    {
+        //how far the walker will go
+        //how to bias the walker so it tends in one direction
+        //the walker needs to appear randomly
+        //store the line in an array or list (for creating branches)
+        // 
+        
+        heightMap = new int[gridSizeX, gridSizeY]; //stores the 
 
+        for (int i = 0; i < numberOfMountainWalkers; i++)
+        {
 
+            int spawnCoordsX = UnityEngine.Random.Range(0, gridSizeX);
+            int spawnCoordsY = UnityEngine.Random.Range(0, gridSizeY);
+           // MountainWalkers(spawnCoordsX, spawnCoordsY);
+        }
 
-    //private void PrintDict()
+    }
+
+    //private void MountainWalkers(int spawnCoordsX, int spawnCoordsY)
     //{
+    //    int x = spawnCoordsX;
+    //    int y = spawnCoordsY;
+    //    walkerSteps = UnityEngine.Random.Range(gridSizeX * gridSizeY / 10, gridSizeX * gridSizeY / 2);
 
-    //    foreach (KeyValuePair<Vector3Int, GameObject> pair in coordObjDictionary)
+    //    for (int j = 0; j < walkerSteps;)
     //    {
-    //        //Debug.Log("Key: " + pair.Key + ", Value: " + pair.Value.name);
-    //    }
+    //        heightMap[x, y] = 1;
 
-    //    foreach (KeyValuePair<Vector3Int, GameObject> pair in coordObjDictionary)
-    //    {
+    //        GameObject currentTile = coordObjDictionary
 
-    //        Debug.Log("key no:" + pair.Key);
-
-
-    //        Vector3Int upNeighbourCoords = new Vector3Int(pair.Key.x, pair.Key.y + 1, pair.Key.z);
-    //        Vector3Int downNeighbourCoords = new Vector3Int(pair.Key.x, pair.Key.y - 1, pair.Key.z);
-    //        Vector3Int rightNeighbourCoords = new Vector3Int(pair.Key.x + 1, pair.Key.y, pair.Key.z);
-    //        Vector3Int leftNeighbourCoords = new Vector3Int(pair.Key.x - 1, pair.Key.y, pair.Key.z);
-
-
-    //        // Debug.Log("Key Neighbours" + upNeighbourCoords + downNeighbourCoords + rightNeighbourCoords + leftNeighbourCoords);
-
-    //        upNeighbourTile = FindObjectByKey(upNeighbourCoords);
-    //        downNeighbourTile = FindObjectByKey(downNeighbourCoords);
-    //        rightNeighbourTile = FindObjectByKey(rightNeighbourCoords);
-    //        leftNeighbourTile = FindObjectByKey(leftNeighbourCoords);
-
-    //        if (rightNeighbourTile != null) { Debug.Log(rightNeighbourTile.name); }
 
 
     //    }
-
     //}
+
 
 
 
@@ -268,6 +340,7 @@ public class LandManager : MonoBehaviour
     void Update()
     {
        
+
 
 
 

@@ -186,16 +186,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteArray:
-  - {fileID: -834600845, guid: 7cb47a6d8518fd0468fecd9a8348c2e4, type: 3}
-  - {fileID: 397107797, guid: 7cb47a6d8518fd0468fecd9a8348c2e4, type: 3}
-  - {fileID: 990207329, guid: 7cb47a6d8518fd0468fecd9a8348c2e4, type: 3}
-  - {fileID: 990207329, guid: 7cb47a6d8518fd0468fecd9a8348c2e4, type: 3}
+  - {fileID: -357190296, guid: f64e8615df163604a9b83ba991512212, type: 3}
+  - {fileID: -850578033, guid: f64e8615df163604a9b83ba991512212, type: 3}
+  - {fileID: -1751984192, guid: f64e8615df163604a9b83ba991512212, type: 3}
+  - {fileID: -392190453, guid: f64e8615df163604a9b83ba991512212, type: 3}
+  - {fileID: -755027114, guid: f64e8615df163604a9b83ba991512212, type: 3}
+  - {fileID: 332424734, guid: f64e8615df163604a9b83ba991512212, type: 3}
   tileName: 
-  tileSearchEnabled: 0
-  leftNeighbor: {fileID: 0}
-  rightNeighbor: {fileID: 0}
-  topNeighbor: {fileID: 0}
-  bottomNeighbor: {fileID: 0}
+  isLand: 0
+  writtenCoords: 
+  tileNeighbours: []
   landManager: {fileID: 0}
 --- !u!1 &641115777327050110
 GameObject:
