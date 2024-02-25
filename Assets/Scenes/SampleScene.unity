@@ -263,8 +263,9 @@ GameObject:
   - component: {fileID: 1297541753}
   - component: {fileID: 1297541755}
   - component: {fileID: 1297541754}
+  - component: {fileID: 1297541756}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: TileMapBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,6 +373,26 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1297541756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297541752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 236f8be7accde4a4abf8c468ca34fc25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mapSizeX: 200
+  mapSizeY: 200
+  numberOfLargeWalkers: 2
+  numberOfSmallWalkers: 8
+  cellAutIterations: 2
+  tileMap: {fileID: 1297541755}
+  waterTile: {fileID: 11400000, guid: bb977c14c81b5c843ac1a05c171a6a3c, type: 2}
+  landTile: {fileID: 11400000, guid: 293d53e0746ef8b479acefb742c10f04, type: 2}
 --- !u!1 &2130789958
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2130789960
 Transform:
   m_ObjectHideFlags: 0

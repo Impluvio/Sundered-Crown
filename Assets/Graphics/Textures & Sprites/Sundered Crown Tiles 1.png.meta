@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7cb47a6d8518fd0468fecd9a8348c2e4
+guid: f64e8615df163604a9b83ba991512212
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 16384
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -125,14 +137,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acbb6bc426f50cf4ba76930ac70a90ec
-      internalID: -834600845
+      spriteID: c7ce80874d6fee1458e1f97c1f04c6fe
+      internalID: -357190296
       vertices: []
       indices: 
       edges: []
@@ -146,14 +158,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8622153af12172a4bb9e119917bf3dad
-      internalID: 990207329
+      spriteID: bf6319a091b520a46a26afc4868eea43
+      internalID: -1751984192
       vertices: []
       indices: 
       edges: []
@@ -167,14 +179,77 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ccfde41fb4ae4049aed5c82c80f3a87
-      internalID: 397107797
+      spriteID: c4e27b3ec031de64989c6183a48c4811
+      internalID: -850578033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Snow
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90fd71c5326de3c43902351826aabd1a
+      internalID: -392190453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mountains
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc7067c26d8b98a4a9b4b8a96a3dde0c
+      internalID: 332424734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Woods
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0bd10b000d03c4f829fe6bb719eb6c
+      internalID: -755027114
       vertices: []
       indices: 
       edges: []
@@ -190,9 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Water: 990207329
-      Grass: -834600845
-      Sand: 397107797
+      Water: -1751984192
+      Mountains: 332424734
+      Grass: -357190296
+      Woods: -755027114
+      Snow: -392190453
+      Sand: -850578033
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
