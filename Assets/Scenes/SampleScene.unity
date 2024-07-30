@@ -390,9 +390,13 @@ MonoBehaviour:
   numberOfLargeWalkers: 2
   numberOfSmallWalkers: 8
   cellAutIterations: 2
+  numberOfMountainRanges: 30
   tileMap: {fileID: 1297541755}
   waterTile: {fileID: 11400000, guid: bb977c14c81b5c843ac1a05c171a6a3c, type: 2}
   landTile: {fileID: 11400000, guid: 293d53e0746ef8b479acefb742c10f04, type: 2}
+  MountainTile: {fileID: 11400000, guid: 2b2d9adea5e049d4db305907d0b0c89a, type: 2}
+  SnowTile: {fileID: 11400000, guid: 42c36488da3ec264d9a19158205972cc, type: 2}
+  SnowMountainTile: {fileID: 11400000, guid: 0070219b8aba8804391b06de317d336d, type: 2}
 --- !u!1 &2130789958
 GameObject:
   m_ObjectHideFlags: 0

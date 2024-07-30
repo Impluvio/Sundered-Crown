@@ -4,26 +4,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
+
 public class LandGenerator : MonoBehaviour
 {
+    // Sets Map Canvas 
     [Tooltip("ensure this is a round number above 20")] [SerializeField] int mapSizeX;
     [Tooltip("ensure this is a round number above 20")] [SerializeField] int mapSizeY;
-
+    // Sets Walker Size to generate landmasses
     [Tooltip("this is approx no. of large continents")] [SerializeField] int numberOfLargeWalkers;
     [Tooltip("this is approx no. of small continents")] [SerializeField] int numberOfSmallWalkers;
+    // Removes noise from Map
     [Tooltip("this will 'smooth' the map the higher it is set")] [SerializeField] int cellAutIterations;
+    // Sets the middle row of the map    
+    int equator;
 
-    int numberOfMountainRanges; 
-
+    // Sets number of mountain ranges
+    [SerializeField] int numberOfMountainRanges;
+    
+    // Manages the sprites for the project.
     public Tilemap tileMap;
     public TileBase waterTile; // NOTE: look at pulling tile type from the tilePallette which you populate in the editor. EXAMPLE:    TileBase tile = tilePalette.GetTile(0);
-    public TileBase landTile;
-    public TileBase MountainTile; 
+    public TileBase landTile;  // maybe these should be stored on the tile itself. 
+    public TileBase MountainTile;
+    public TileBase SnowTile;
+    public TileBase SnowMountainTile;
 
+    // Manages the array data structure for the 'Game Tile classes' 
 
     public GameTile[,] gameTiles;
     GameTile[,] mapGrid;
     GameTile[,] newStateGrid;
+    List<GameTile> landTiles = new List<GameTile>();
+    List<GameTile> mountainTiles = new List<GameTile>();
+    private List<HashSet<GameTile>> mountainClusters = new List<HashSet<GameTile>>(); //contains mountain ranges as hashsets.
+
+    // D
+
+    private Dictionary<Vector3Int, int> depths = new Dictionary<Vector3Int, int>();
+    
+
 
     void Start()
     {
@@ -33,13 +52,13 @@ public class LandGenerator : MonoBehaviour
         SetGridData();
         SetTileNeighbours();
         GenerateLandmasses();
-
+        testRun();
     }
 
-   
-
-    private void SetGridData()
+  
+    private void SetGridData() // Sets The grid, initialises array of gametiles, Names them, sets their position in the Tile Map
     {
+        equator = mapSizeY / 2; // sets the equator as an int which represents the middle row of the map.
         mapGrid = new GameTile[mapSizeX, mapSizeY]; // initialises the array of game tiles.
 
         for (int i = 0; i < mapSizeX; i++)
@@ -56,8 +75,9 @@ public class LandGenerator : MonoBehaviour
                 newTileInstance.SetName(tileName);
                 mapGrid[i, j] = newTileInstance; // populates array.
 
-                //Debug.Log(mapGrid.Length);
-                //Debug.Log($"game tile at [{i},{j}] is set to {mapGrid[i, j].currentSprite}");
+                int distanceToMid = Mathf.Abs(j - equator);
+                Debug.Log("dist to mid: " + distanceToMid);
+                newTileInstance.SetEquatorDistance(distanceToMid); 
 
                 Vector3Int currentPosition = new Vector3Int(i, j, 0);
                 tileMap.SetTile(currentPosition, waterTile);
@@ -67,11 +87,10 @@ public class LandGenerator : MonoBehaviour
 
         }
 
-    }
+    }                     
 
-    private void SetTileNeighbours()
+    private void SetTileNeighbours()  // Calculates the neighbours of each Game Tile in the array, feeds these to the Game Tile
     {
-        
 
         int row = mapGrid.GetLength(0);
         int col = mapGrid.GetLength(1);
@@ -109,7 +128,7 @@ public class LandGenerator : MonoBehaviour
 
 
                 GameTile currentTile = mapGrid[i, j];
-                currentTile.setNeighbours(neighbours);
+                currentTile.SetNeighbours(neighbours);
 
 
                 //foreach (GameTile gameTile in neighbours)
@@ -131,7 +150,7 @@ public class LandGenerator : MonoBehaviour
 
     }
 
-    private void GenerateLandmasses()
+    private void GenerateLandmasses() // Manages the generation of continents, Calls on RandomWalker,  Cellular Automata, Create Mountains and Set Climate Zones 
     {
         int largeWalker = mapSizeX * mapSizeY;
         int smallWalker = UnityEngine.Random.Range(mapSizeX * mapSizeY / 30, mapSizeY * mapSizeX / 20);
@@ -148,7 +167,9 @@ public class LandGenerator : MonoBehaviour
 
         RunCellularAutomata(cellAutIterations); //great way to tell if this is working is the map will look more gritty/granular in the land masses if not actioned.
 
-        CreateMountains(numberOfMountainRanges); 
+        CreateMountains(numberOfMountainRanges);
+
+        SetClimateZones();
 
 
         // fault line progression algorithm to set the mountain ranges
@@ -171,9 +192,7 @@ public class LandGenerator : MonoBehaviour
     {
         int randomCoordsX = UnityEngine.Random.Range(0, mapSizeX);
         int randomCoordsY = UnityEngine.Random.Range(0, mapSizeY);
-
         GameTile startTile = mapGrid[randomCoordsX, randomCoordsY];
-
 
         int currentSteps = 0;
 
@@ -185,7 +204,8 @@ public class LandGenerator : MonoBehaviour
 
             if (currentTile != null)
             {
-                currentTile.setLandOrSea(true);
+                currentTile.SetLandOrSea(true);
+                landTiles.Add(currentTile);
                 int randomDirection = UnityEngine.Random.Range(0, 4);
                 startTile = MoveToNeighbour(currentTile, randomDirection);
                 currentSteps++;
@@ -205,7 +225,7 @@ public class LandGenerator : MonoBehaviour
         //while loop while current steps are less than numberofsteps choose random next tile from array and switch to grass/land
 
 
-    }
+    } // This is utilised by different methods to create random land masses. 
 
     private GameTile MoveToNeighbour(GameTile currentTile, int Direction)
     {
@@ -214,7 +234,7 @@ public class LandGenerator : MonoBehaviour
 
         if (tileToMoveFrom != null && tileToMoveFrom.tileNeighbours != null && Direction >= 0 && Direction < tileToMoveFrom.tileNeighbours.Length)
         {
-            GameTile nextTile = tileToMoveFrom.tileNeighbours[Direction];
+            GameTile nextTile = tileToMoveFrom.tileNeighbours[Direction]; //0 to 3 is up | right | down | left.
 
             if (nextTile != null)
             {
@@ -226,7 +246,7 @@ public class LandGenerator : MonoBehaviour
         }
 
         return (tileToMoveFrom);
-    }
+    } // utilised by RandomWalker / Create Mountains 
 
     private void RunCellularAutomata(int cellAutIterations)
     {
@@ -247,29 +267,28 @@ public class LandGenerator : MonoBehaviour
             foreach(GameTile gameTile in mapGrid)
             {
                 GameTile currentTile = gameTile;
-                int landCount = countNoLandNeighbours(currentTile);
+                int landCount = CountNoLandNeighbours(currentTile);
 
                 if(landCount >= 3)
                 {
-                    Debug.Log("land is flipping");
+                    
                     GameTile newStateTileToChange = newStateGrid[currentTile.tilePosition.x, currentTile.tilePosition.y];
-                    newStateTileToChange.setLandOrSea(true);
-                    Debug.Log("tile number" + newStateTileToChange.tilePosition + "has flipped to land");
+                    newStateTileToChange.SetLandOrSea(true);
+                   
                 }
                 if(landCount < 2)
                 {
                     GameTile newStateTileToChange = newStateGrid[currentTile.tilePosition.x, currentTile.tilePosition.y];
-                    newStateTileToChange.setLandOrSea(false);
+                    newStateTileToChange.SetLandOrSea(false);
                 }
 
             }
-            Debug.Log("flips state");
             mapGrid = newStateGrid;
 
         }
-    }
+    } //iterates over land (only land) and smooths its edges.
 
-    private int countNoLandNeighbours(GameTile currentTile)
+    private int CountNoLandNeighbours(GameTile currentTile)
     {
         int landCount = 0;
 
@@ -288,51 +307,196 @@ public class LandGenerator : MonoBehaviour
         }
 
         return (landCount);
-    }
+    } // records the number of land tiles for the game of life / cellular automata algorithm
 
-    private void CreateMountains(int numberOfRanges)
+    private void CreateMountains(int numberOfRanges) 
     {
-        int randomCoordsX = UnityEngine.Random.Range(0, mapSizeX);
-        int randomCoordsY = UnityEngine.Random.Range(0, mapSizeY);
-
         int lowerRangeLength = mapSizeX + mapSizeY / 10;
         int upperRangeLength = mapSizeX + mapSizeY / 2;
-
+       
         for (int i = 0; i < numberOfMountainRanges; i++)
         {
-            GameTile startTile = mapGrid[randomCoordsX, randomCoordsY];
-
+            int landListLength = landTiles.Count;
+            int randomTileEntry = UnityEngine.Random.Range(0, landListLength);
+            GameTile selectedTile = landTiles[randomTileEntry];                                 // this is list of land tiles.
             int randomLength = UnityEngine.Random.Range(lowerRangeLength, upperRangeLength);
             int currentSteps = 0;
+            //set the start point to a land tile and get it only to move to land tiles
 
             while (currentSteps < randomLength)
             {
 
+                if (selectedTile != null)
+                {
 
-                ++currentSteps;
+                    selectedTile.SetMountains(true);
+                    mountainTiles.Add(selectedTile); 
+
+                    int randomDirectionOne = UnityEngine.Random.Range(0, 4); //0 to 3 is up | right | down | left.
+                    int randomDirectionTwo = UnityEngine.Random.Range(0, 4);
+                    int randomDirection = randomDirectionOne;
+
+                    GameTile tileToCheck = MoveToNeighbour(selectedTile, randomDirection);
+
+                    if (tileToCheck.isLand)
+                    {
+                        selectedTile = tileToCheck;
+                        currentSteps++;
+                    }
+                    else
+                    {
+                        randomDirection = randomDirectionTwo;
+                    }
+
+                    
+
+                }
+
+
             }
 
         }
 
-
-
-
-
-
-
-
-
-        // create random start point - will need x/y for this. 
-
-        // set random walker in a direction - we could do a random 
-
+        LabelMountainClusters();
 
     }
 
-    private void updateMap()
+    private void LabelMountainClusters() //ADAPTATION - can be improved by storing cluster as a named range. (even if this is range1, range2 etc we can then rename the mountains later).
     {
-        //iterate over the 2d array, and return the vector3 coordinate & land bool // we will change this later, so that we access tilemap pallet from the gameTile object, and return this, but for now just the bool.
+        HashSet<GameTile> allVisitedTiles = new HashSet<GameTile>(); // tracks the visited tiles to prevent re-processing
 
+        foreach (GameTile gameTile in mountainTiles) //all created tile sare in this, for each tile we create a mountain cluster
+        {
+            if (!allVisitedTiles.Contains(gameTile)) //checks the visited tiles
+            {
+                HashSet<GameTile> cluster = FloodFill(gameTile); // runs flood fill algorithm, using current game tile as starting point.
+                mountainClusters.Add(cluster); //adds this hash set / cluster of mountain tiles to list of hash sets
+                allVisitedTiles.UnionWith(cluster); // adds the cluster tiles to visited tile hash set. 
+            }
+        }
+
+        foreach (var cluster in mountainClusters)
+        {
+            int mountainDepthThreshold = 4;
+            markSpineOfMountainRange(cluster, mountainDepthThreshold);
+
+        }
+
+    }
+
+  
+    private HashSet<GameTile> FloodFill(GameTile startTile)
+    {
+        HashSet<GameTile> cluster = new HashSet<GameTile>();
+        Queue<GameTile> queueToProcess = new Queue<GameTile>();
+        queueToProcess.Enqueue(startTile);
+        cluster.Add(startTile);
+
+        while (queueToProcess.Count > 0)
+        {
+            GameTile current = queueToProcess.Dequeue();
+            foreach (GameTile neighbour in current.tileNeighbours)
+            {
+                if (neighbour.isMountain && !cluster.Contains(neighbour))
+                {
+                    cluster.Add(neighbour);
+                    queueToProcess.Enqueue(neighbour);
+                }
+            }
+        }
+
+        return cluster;
+    }
+
+    private void markSpineOfMountainRange(HashSet<GameTile> cluster, int distanceToThreshold)
+    {
+        foreach (GameTile gameTile in cluster)
+        {
+            int distanceToEdge = CalculateDistanceToEdge(gameTile, cluster);
+            if (distanceToEdge > distanceToThreshold)
+            {
+                gameTile.SetMountainSpine(true);
+            }
+        }
+    }
+
+    private int CalculateDistanceToEdge(GameTile gameTile, HashSet<GameTile> cluster)
+    {
+       
+    }
+
+    private void SetClimateZones() 
+    {
+        // what we will do here is, read the distance from the equator variable in each tile using a foreach. 
+        // make the top 10% for example change the snow likelihood. 
+        // we will set a parameter that indicates how far from the equator is ice/snow. 
+        // then we will create a buffer zone - the further into that buffer zone the higher the likelihood of snow
+        // lastly we will use a cellular automata algorithm to ensure any lone grass squares are converted.
+
+        int calcPolarCapSize(int mapSizeY) =>           //set how deep the ice should be using terniary condition
+            mapSizeY < 50 ? 6 :                         //based upon mapsize - take this from the .abs max distance from equator
+            mapSizeY < 100 ? 10 :                       //maybe change this to a slider.
+            mapSizeY < 200 ? 15 : 20;
+
+        int polarCapSize = calcPolarCapSize(mapSizeY);       //passes this to a variable
+        int transitionalZone = (int)Math.Ceiling(polarCapSize / 3.0); //this sets the buffer that can still contain ice
+        int maxDistanceToPoles = Mathf.Abs(mapSizeY - equator);  // Sets the distance from equator to pole as an absolute number. 
+        int polarZoneStart = maxDistanceToPoles - polarCapSize;  // notes the beginning of the polar zone
+        int bufferZoneStart = polarZoneStart - transitionalZone; // notes the beginning area where snow MAY be present
+
+        List<int> bufferZoneRows = getBufferZoneRows(polarZoneStart, bufferZoneStart);
+        int rowListLength = bufferZoneRows.Count;
+        float percentageDistribution = (100 / rowListLength);
+
+        foreach (GameTile gameTile in mapGrid)
+        {
+            GameTile currentTile = gameTile;
+            int currentTileToMid = currentTile.distanceFromEquator;
+
+            if (currentTileToMid >= polarZoneStart && currentTileToMid <= maxDistanceToPoles + 1) //small strip still green owing to zero index.
+            {
+                currentTile.SetSnow(true);
+            }
+            else if (currentTileToMid > bufferZoneStart && currentTileToMid < polarZoneStart)
+            {
+                int Index = bufferZoneRows.IndexOf(currentTileToMid);
+                int probabilityOfSnow = Mathf.FloorToInt(Index * percentageDistribution);
+                int randomValue = UnityEngine.Random.Range(1, 101);
+
+                // Check if the random value falls within the probability range
+                if (randomValue <= probabilityOfSnow)
+                {
+                    currentTile.SetSnow(true); // Set tile as snow
+                }
+            }
+
+
+        }
+
+    }
+
+    private List<int> getBufferZoneRows(int startOfPolarZone, int startOfBufferZone)
+    {
+        // int bufferZoneDepth = startOfPolarZone - startOfBufferZone;
+        List<int> polarRows = new List<int>();
+
+        for (int row = startOfBufferZone; row < startOfPolarZone; row++)
+        {
+            polarRows.Add(row);
+        }
+
+        return polarRows;
+
+        
+
+    }
+
+
+    private void updateMap() // this actions all the changes iterated over the tiles
+    {
+        // iterate over the 2d array, and return the vector3 coordinate & land bool 
+        // we will change this later, so that we access tilemap pallet from the gameTile object, and return this, but for now just the bool.
+        // this can be much simpler - it could for each over the tiles in the array and update the grid based upon their gameTiles references.
         foreach (GameTile gameTile in mapGrid)
 
         {
@@ -343,10 +507,39 @@ public class LandGenerator : MonoBehaviour
                 tileMap.SetTile(currentTile.tilePosition, landTile);
 
             }
+            if (currentTile.isMountain)
+            {
+                tileMap.SetTile(currentTile.tilePosition, MountainTile);
+            }
+           if(currentTile.isLand && currentTile.isSnowy)
+            {
+                tileMap.SetTile(currentTile.tilePosition, SnowTile);
+            }
+            if (currentTile.isMountain && currentTile.isSnowy)
+            {
+                tileMap.SetTile(currentTile.tilePosition, SnowMountainTile);
+            }
+
+
+        }
+
+    } 
+
+    private void testRun() // use this to run more advanced checks/debuging.
+    {
+        foreach (GameTile gameTile in mapGrid)
+        {
+            GameTile currentTile = gameTile;
+
+            int distanceToMid = currentTile.distanceFromEquator;
+            string tileName = currentTile.name;
+
+            Debug.Log("Tile name: " + tileName + " Distance to equator: " + distanceToMid);
 
         }
 
     }
+
 
 
     // Update is called once per frame

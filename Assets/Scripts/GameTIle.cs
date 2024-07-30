@@ -14,18 +14,22 @@ public class GameTile
     public List<string> spriteList;
     public string currentSprite;
     public bool isLand;
+    public bool isMountain;
+    public bool isLargeMountain;
+    public bool isSnowy;
     public GameTile[] tileNeighbours;
+    [Range(-10, 10)] public int elevation;  // 0 is sea level.
+    public int distanceFromEquator;         // this is a abs. row from the equator the equator being 0 and 1 being one row above or below equator etc.
 
 
     public GameTile(int xCoordinate, int yCoordinate)
     {
         tilePosition = new Vector3Int(xCoordinate, yCoordinate, 0); //we were declaring a new varible here by putting vector3Int in front of tilePosition.
-
-        spriteList = new List<string> { "water", "sand", "grass" };
-
+        spriteList = new List<string> { "water", "sand", "grass", "mountain","Large Mountain" };
         string currentSprite = "water";
-    }
 
+
+    }
 
     public void SetName(string newName)
     {
@@ -33,12 +37,22 @@ public class GameTile
 
     }
 
-    public void setNeighbours(GameTile[] neighbours)
+    public void SetEquatorDistance(int distanceToMid)
+    {
+
+        distanceFromEquator = distanceToMid;
+
+    }
+
+
+    public void SetNeighbours(GameTile[] neighbours)
     {
         tileNeighbours = neighbours;
     }
 
-    public void setLandOrSea(bool isItLand)
+    //the below bools are kinda lazy, we could set these bools and then check them at the end.
+
+    public void SetLandOrSea(bool isItLand)
     {
         isLand = isItLand;
         if(isLand == true)
@@ -51,6 +65,43 @@ public class GameTile
         }
     }
 
+    public void SetMountains(bool isItMountain)
+    {
+        isMountain = isItMountain;
+        if(isMountain == true)
+        {
+            currentSprite = spriteList[3];
+        }
+        else
+        {
+
+        }
+
+    }
+
+    public void SetMountainSpine(bool isItLargemountain) // be aware that there isa weakness here in the code as it is highly dependant on execution order.
+    {
+        isLargeMountain = isItLargemountain;
+        if (isLargeMountain == true);
+        {
+            currentSprite = spriteList[4]; //this is arbitrary and needs a better solution.
+        }
+
+    }
+
+
+
+
+    public void SetSnow(bool isItArtic)
+    {
+        isSnowy = isItArtic;
+        if(isSnowy == true)
+        {
+
+        }
+    }
+        
+    
 
 
 }
