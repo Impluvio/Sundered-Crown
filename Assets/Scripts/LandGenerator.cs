@@ -38,7 +38,7 @@ public class LandGenerator : MonoBehaviour
     List<GameTile> mountainTiles = new List<GameTile>();
     private List<HashSet<GameTile>> mountainClusters = new List<HashSet<GameTile>>(); //contains mountain ranges as hashsets.
 
-    // D
+ 
 
     private Dictionary<Vector3Int, int> depths = new Dictionary<Vector3Int, int>();
     
@@ -167,7 +167,7 @@ public class LandGenerator : MonoBehaviour
 
         RunCellularAutomata(cellAutIterations); //great way to tell if this is working is the map will look more gritty/granular in the land masses if not actioned.
 
-        CreateMountains(numberOfMountainRanges);
+        //CreateMountainRanges(numberOfMountainRanges);
 
         SetClimateZones();
 
@@ -230,7 +230,6 @@ public class LandGenerator : MonoBehaviour
     private GameTile MoveToNeighbour(GameTile currentTile, int Direction)
     {
         GameTile tileToMoveFrom = currentTile;
-
 
         if (tileToMoveFrom != null && tileToMoveFrom.tileNeighbours != null && Direction >= 0 && Direction < tileToMoveFrom.tileNeighbours.Length)
         {
@@ -309,120 +308,157 @@ public class LandGenerator : MonoBehaviour
         return (landCount);
     } // records the number of land tiles for the game of life / cellular automata algorithm
 
-    private void CreateMountains(int numberOfRanges) 
+    private void CreateMountainRanges(int numberOfRanges) 
     {
         int lowerRangeLength = mapSizeX + mapSizeY / 10;
         int upperRangeLength = mapSizeX + mapSizeY / 2;
-       
+
+        int upperSpineLength = Mathf.FloorToInt(mapSizeX / 3);
+        int lowerSpineLength = Mathf.FloorToInt(mapSizeX / 9);
+
         for (int i = 0; i < numberOfMountainRanges; i++)
         {
             int landListLength = landTiles.Count;
             int randomTileEntry = UnityEngine.Random.Range(0, landListLength);
             GameTile selectedTile = landTiles[randomTileEntry];                                 // this is list of land tiles.
-            int randomLength = UnityEngine.Random.Range(lowerRangeLength, upperRangeLength);
-            int currentSteps = 0;
+           // int randomLength = UnityEngine.Random.Range(lowerRangeLength, upperRangeLength);
+            int spineLength = UnityEngine.Random.Range(lowerSpineLength, upperSpineLength);
+           // int currentSteps = 0; 
+            HashSet<GameTile> mountainCluster = setSpine(selectedTile, spineLength);
+            
+            
+            
+            
             //set the start point to a land tile and get it only to move to land tiles
 
-            while (currentSteps < randomLength)
-            {
+            //while (currentSteps < randomLength)
+            //{
 
-                if (selectedTile != null)
-                {
+            //    if (selectedTile != null)
+            //    {
 
-                    selectedTile.SetMountains(true);
-                    mountainTiles.Add(selectedTile); 
+            //        selectedTile.SetMountains(true);
+            //        mountainTiles.Add(selectedTile); 
 
-                    int randomDirectionOne = UnityEngine.Random.Range(0, 4); //0 to 3 is up | right | down | left.
-                    int randomDirectionTwo = UnityEngine.Random.Range(0, 4);
-                    int randomDirection = randomDirectionOne;
+            //        int randomDirectionOne = UnityEngine.Random.Range(0, 4); //0 to 3 is up | right | down | left.
+            //        int randomDirectionTwo = UnityEngine.Random.Range(0, 4);
+            //        int randomDirection = randomDirectionOne;
 
-                    GameTile tileToCheck = MoveToNeighbour(selectedTile, randomDirection);
+            //        GameTile tileToCheck = MoveToNeighbour(selectedTile, randomDirection);
 
-                    if (tileToCheck.isLand)
-                    {
-                        selectedTile = tileToCheck;
-                        currentSteps++;
-                    }
-                    else
-                    {
-                        randomDirection = randomDirectionTwo;
-                    }
+            //        if (tileToCheck.isLand)
+            //        {
+            //            selectedTile = tileToCheck;
+            //            currentSteps++;
+            //        }
+            //        else
+            //        {
+            //            randomDirection = randomDirectionTwo;
+            //        }
 
                     
 
-                }
+            //    }
 
 
-            }
+            //} 
 
         }
 
-        LabelMountainClusters();
 
     }
 
-    private void LabelMountainClusters() //ADAPTATION - can be improved by storing cluster as a named range. (even if this is range1, range2 etc we can then rename the mountains later).
+    private HashSet<GameTile> setSpine(GameTile selectedTile, int spineLength)
     {
-        HashSet<GameTile> allVisitedTiles = new HashSet<GameTile>(); // tracks the visited tiles to prevent re-processing
+        bool axialBiasX = UnityEngine.Random.value > 0.5f; //this is a condition
+        int currentStep = 0;
+        HashSet<GameTile> spine = new HashSet<GameTile>(); // would be good to auto name these mountain ranges at some point. 
+        //add first tile here
 
-        foreach (GameTile gameTile in mountainTiles) //all created tile sare in this, for each tile we create a mountain cluster
+        GameTile tileToProcess = selectedTile;
+        int randomDirectionOne = 0;
+        int randomDirectionTwo = 0;
+        int directionToCheck;
+
+        while (currentStep < spineLength)
         {
-            if (!allVisitedTiles.Contains(gameTile)) //checks the visited tiles
+            if (tileToProcess != null)
             {
-                HashSet<GameTile> cluster = FloodFill(gameTile); // runs flood fill algorithm, using current game tile as starting point.
-                mountainClusters.Add(cluster); //adds this hash set / cluster of mountain tiles to list of hash sets
-                allVisitedTiles.UnionWith(cluster); // adds the cluster tiles to visited tile hash set. 
-            }
-        }
+                tileToProcess.SetMountainSpine(true);        
 
-        foreach (var cluster in mountainClusters)
-        {
-            int mountainDepthThreshold = 4;
-            markSpineOfMountainRange(cluster, mountainDepthThreshold);
-
-        }
-
-    }
-
-  
-    private HashSet<GameTile> FloodFill(GameTile startTile)
-    {
-        HashSet<GameTile> cluster = new HashSet<GameTile>();
-        Queue<GameTile> queueToProcess = new Queue<GameTile>();
-        queueToProcess.Enqueue(startTile);
-        cluster.Add(startTile);
-
-        while (queueToProcess.Count > 0)
-        {
-            GameTile current = queueToProcess.Dequeue();
-            foreach (GameTile neighbour in current.tileNeighbours)
-            {
-                if (neighbour.isMountain && !cluster.Contains(neighbour))
+                if (axialBiasX == true)
                 {
-                    cluster.Add(neighbour);
-                    queueToProcess.Enqueue(neighbour);
+                    float[] biasedWeightsX = { 2f, 1f, 2f, 1f };                 // Biases the Up & Down movements.
+
+                    float totalWeight = 0;
+                    foreach (float weight in biasedWeightsX)
+                    {
+                        totalWeight += weight;
+                    }
+
+                    float randomValue = UnityEngine.Random.value * totalWeight; // Sets the total weight as a number BETWEEN 0.0 & 1.0 * the added floats in the biased array 
+
+                    float cumulativeWeight = 0;                                 // Cumulative weight will gradually add the floats in the array together
+                    for (int i = 0; i < biasedWeightsX.Length; i++)
+                    {
+                        cumulativeWeight += biasedWeightsX[i];                  // Add the weights, with each round this goes higher so the chance of being under increases
+                        if (randomValue < cumulativeWeight)
+                        {
+                            randomDirectionOne = i;
+                            randomDirectionTwo = UnityEngine.Random.Range(0, 4);
+                        }
+                    }
+
+
+                } // stupidly big if statement, would poss be better as separate method. 
+                else // bias Y
+                {
+                    float[] biasedWeightsY = { 1f, 2f, 1f, 2f };
+
+                    float totalWeight = 0;
+                    foreach (float weight in biasedWeightsY)
+                    {
+                        totalWeight += weight;
+                    }
+
+                    float randomValue = UnityEngine.Random.value * totalWeight; // Sets the total weight as a number BETWEEN 0.0 & 1.0 * the added floats in the biased array 
+
+                    float cumulativeWeight = 0;                                 // Cumulative weight will gradually add the floats in the array together
+                    for (int i = 0; i < biasedWeightsY.Length; i++)
+                    {
+                        cumulativeWeight += biasedWeightsY[i];                  // Add the weights, with each round this goes higher so the chance of being under increases
+                        if (randomValue < cumulativeWeight)
+                        {
+                            randomDirectionOne = i;
+                            randomDirectionTwo = UnityEngine.Random.Range(0, 4);
+
+                        }
+
+                    }
+
+                    
                 }
+                
+                directionToCheck = randomDirectionOne;
+
+                GameTile tileToCheck = MoveToNeighbour(tileToProcess, directionToCheck);
+
+                if (tileToCheck.isLand)
+                {
+                    tileToProcess = tileToCheck;
+                    currentStep++;
+                    spine.Add(tileToProcess);
+                }
+                else
+                {
+                    directionToCheck = randomDirectionTwo;
+                }
+
             }
         }
 
-        return cluster;
-    }
+        return spine;
 
-    private void markSpineOfMountainRange(HashSet<GameTile> cluster, int distanceToThreshold)
-    {
-        foreach (GameTile gameTile in cluster)
-        {
-            int distanceToEdge = CalculateDistanceToEdge(gameTile, cluster);
-            if (distanceToEdge > distanceToThreshold)
-            {
-                gameTile.SetMountainSpine(true);
-            }
-        }
-    }
-
-    private int CalculateDistanceToEdge(GameTile gameTile, HashSet<GameTile> cluster)
-    {
-       
     }
 
     private void SetClimateZones() 

@@ -389,7 +389,7 @@ MonoBehaviour:
   mapSizeY: 200
   numberOfLargeWalkers: 2
   numberOfSmallWalkers: 8
-  cellAutIterations: 2
+  cellAutIterations: 4
   numberOfMountainRanges: 30
   tileMap: {fileID: 1297541755}
   waterTile: {fileID: 11400000, guid: bb977c14c81b5c843ac1a05c171a6a3c, type: 2}
