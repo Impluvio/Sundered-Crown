@@ -41,7 +41,9 @@ public class LandGenerator : MonoBehaviour
  
 
     private Dictionary<Vector3Int, int> depths = new Dictionary<Vector3Int, int>();
-    
+
+    public WeatherManager weatherManager;
+
 
 
     void Start()
@@ -170,7 +172,6 @@ public class LandGenerator : MonoBehaviour
         //CreateMountainRanges(numberOfMountainRanges);
 
         SetClimateZones();
-
 
         // fault line progression algorithm to set the mountain ranges
         // maybe for this, set a straighter walker and along the line, set a number of branches so that the range has more character. 
@@ -559,7 +560,7 @@ public class LandGenerator : MonoBehaviour
 
         }
 
-    } 
+    }
 
     private void testRun() // use this to run more advanced checks/debuging.
     {
@@ -573,6 +574,8 @@ public class LandGenerator : MonoBehaviour
             Debug.Log("Tile name: " + tileName + " Distance to equator: " + distanceToMid);
 
         }
+
+        weatherManager.GenerateClouds(mapSizeX, mapSizeY);
 
     }
 
