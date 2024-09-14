@@ -169,7 +169,7 @@ public class LandGenerator : MonoBehaviour
 
         RunCellularAutomata(cellAutIterations); //great way to tell if this is working is the map will look more gritty/granular in the land masses if not actioned.
 
-        //CreateMountainRanges(numberOfMountainRanges);
+        CreateMountainRanges(numberOfMountainRanges);
 
         SetClimateZones();
 
@@ -311,25 +311,24 @@ public class LandGenerator : MonoBehaviour
 
     private void CreateMountainRanges(int numberOfRanges) 
     {
-        int lowerRangeLength = mapSizeX + mapSizeY / 10;
-        int upperRangeLength = mapSizeX + mapSizeY / 2;
+        int lowerRangeLength = mapSizeX + mapSizeY / 10;                                        //Get smaller size as percentage of map size
+        int upperRangeLength = mapSizeX + mapSizeY / 2;                                         //Get larger size as percentage of map size
 
-        int upperSpineLength = Mathf.FloorToInt(mapSizeX / 3);
-        int lowerSpineLength = Mathf.FloorToInt(mapSizeX / 9);
+        int upperSpineLength = Mathf.FloorToInt(mapSizeX / 3);                                  // ensure this remains an Int 
+        int lowerSpineLength = Mathf.FloorToInt(mapSizeX / 9);                                  // ensures this remains an Int 
 
-        for (int i = 0; i < numberOfMountainRanges; i++)
+        for (int i = 0; i < numberOfMountainRanges; i++)                                        // iterates over mountain range number.
         {
-            int landListLength = landTiles.Count;
-            int randomTileEntry = UnityEngine.Random.Range(0, landListLength);
-            GameTile selectedTile = landTiles[randomTileEntry];                                 // this is list of land tiles.
+            int landListLength = landTiles.Count;                                               // Accesses all land tiles
+            int randomTileEntry = UnityEngine.Random.Range(0, landListLength);                  // Selects random tile from all land tiles
+            GameTile selectedTile = landTiles[randomTileEntry];                                 // Selects and assigns random tile entry.
            // int randomLength = UnityEngine.Random.Range(lowerRangeLength, upperRangeLength);
-            int spineLength = UnityEngine.Random.Range(lowerSpineLength, upperSpineLength);
+            int spineLength = UnityEngine.Random.Range(lowerSpineLength, upperSpineLength);     // Sets the length of the Mountain range spine. 
            // int currentSteps = 0; 
-            HashSet<GameTile> mountainCluster = setSpine(selectedTile, spineLength);
-            
-            
-            
-            
+            HashSet<GameTile> mountainCluster = setSpine(selectedTile, spineLength);            //passes this to a set spine method which outputs hash for that mountain range
+
+
+
             //set the start point to a land tile and get it only to move to land tiles
 
             //while (currentSteps < randomLength)
@@ -357,61 +356,62 @@ public class LandGenerator : MonoBehaviour
             //            randomDirection = randomDirectionTwo;
             //        }
 
-                    
+
 
             //    }
 
 
             //} 
 
+
         }
 
 
     }
 
-    private HashSet<GameTile> setSpine(GameTile selectedTile, int spineLength)
+    private HashSet<GameTile> setSpine(GameTile selectedTile, int spineLength)              // set spine method takes in current tile & the length of the mountain spine and spits out a hash set.  
     {
-        bool axialBiasX = UnityEngine.Random.value > 0.5f; //this is a condition
-        int currentStep = 0;
-        HashSet<GameTile> spine = new HashSet<GameTile>(); // would be good to auto name these mountain ranges at some point. 
+        bool axialBiasX = UnityEngine.Random.value > 0.5f;                                  // rando float between 0.0 & 1.0 so 50:50 random choice 
+        int currentStep = 0;                                                                // resets step value
+        HashSet<GameTile> spine = new HashSet<GameTile>();                                  // $$$ would be good to auto name these mountain ranges at some point $$$
         //add first tile here
 
-        GameTile tileToProcess = selectedTile;
-        int randomDirectionOne = 0;
-        int randomDirectionTwo = 0;
-        int directionToCheck;
+        GameTile tileToProcess = selectedTile;                                              // start tile set 
+        int randomDirectionOne = 0;                                                         // initialises variable
+        int randomDirectionTwo = 0;                                                         // initialises variable    
+        int directionToCheck;                                                               // sets the direction to check based upon axial bias (see below)  
 
-        while (currentStep < spineLength)
+        while (currentStep < spineLength)                                                   // iterates through as long as the current step in process is less than spine length
         {
-            if (tileToProcess != null)
+            if (tileToProcess != null)                                                      // Null check 
             {
-                tileToProcess.SetMountainSpine(true);        
+                tileToProcess.SetMountainSpine(true);                                       // Setts instance of GameTile to mountain spine (i.e. big mountain) 
 
                 if (axialBiasX == true)
                 {
-                    float[] biasedWeightsX = { 2f, 1f, 2f, 1f };                 // Biases the Up & Down movements.
+                    float[] biasedWeightsX = { 2f, 1f, 2f, 1f };                            // Array of Floats Biases the Up & Down movements.
 
-                    float totalWeight = 0;
-                    foreach (float weight in biasedWeightsX)
+                    float totalWeight = 0;                                                  // Declares total weight var
+                    foreach (float weight in biasedWeightsX)                                // looks at each value in weights...    
                     {
-                        totalWeight += weight;
+                        totalWeight += weight;                                              // Adds that weight to total weight (like 2 + 1 + 2 + 1) giving 6  
                     }
 
-                    float randomValue = UnityEngine.Random.value * totalWeight; // Sets the total weight as a number BETWEEN 0.0 & 1.0 * the added floats in the biased array 
+                    float randomValue = UnityEngine.Random.value * totalWeight;             // Gives rando value between 0.0 & 1.0 and times' that, so  0.0-1.0 x 6 *
 
-                    float cumulativeWeight = 0;                                 // Cumulative weight will gradually add the floats in the array together
-                    for (int i = 0; i < biasedWeightsX.Length; i++)
+                    float cumulativeWeight = 0;                                             // Cumulative weight will gradually add the floats in the array together
+                    for (int i = 0; i < biasedWeightsX.Length; i++)                         // loops for as many entries as in the Biased weights array.
                     {
-                        cumulativeWeight += biasedWeightsX[i];                  // Add the weights, with each round this goes higher so the chance of being under increases
-                        if (randomValue < cumulativeWeight)
-                        {
-                            randomDirectionOne = i;
-                            randomDirectionTwo = UnityEngine.Random.Range(0, 4);
-                        }
+                        cumulativeWeight += biasedWeightsX[i];                              // Adds the weighting from the array to the cumulative weight 
+                        if (randomValue < cumulativeWeight)                                 // Adds to cumulative weight, so it will eventually be larger than random value, which then...
+                        {                                                                   // Naturally biases the weights with the higher number to begin with as they add more to cumulative weight
+                            randomDirectionOne = i;                                         // selects between 1,2,3,4 from the array once the cumulative weight is above random 
+                            randomDirectionTwo = UnityEngine.Random.Range(0, 4);            // sets other direction to a random between the 4 cardinal points.
+                        }                                                                   // stupidly big if statement, would poss be better as separate method.    
                     }
 
 
-                } // stupidly big if statement, would poss be better as separate method. 
+                }                                                                           
                 else // bias Y
                 {
                     float[] biasedWeightsY = { 1f, 2f, 1f, 2f };
@@ -438,15 +438,15 @@ public class LandGenerator : MonoBehaviour
                     }
 
                     
-                }
+                }                                                                     // if axialbiasX is not true (bias Y instead).                        
                 
-                directionToCheck = randomDirectionOne;
+                directionToCheck = randomDirectionOne;                                      // once the stupidly big IF statements have run we bias the direction of the mountains
 
-                GameTile tileToCheck = MoveToNeighbour(tileToProcess, directionToCheck);
+                GameTile tileToCheck = MoveToNeighbour(tileToProcess, directionToCheck);    // we check the neighbours using ol'reliable which feeds the current tile
 
-                if (tileToCheck.isLand)
+                if (tileToCheck.isLand)                                                     // if the tile is land then add it to the spine.
                 {
-                    tileToProcess = tileToCheck;
+                    tileToProcess = tileToCheck;                                            // spine can write over itself (check this).
                     currentStep++;
                     spine.Add(tileToProcess);
                 }
@@ -457,8 +457,8 @@ public class LandGenerator : MonoBehaviour
 
             }
         }
-
-        return spine;
+        
+        return spine; 
 
     }
 
