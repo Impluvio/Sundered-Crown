@@ -20,6 +20,7 @@ public class LandGenerator : MonoBehaviour
 
     // Sets number of mountain ranges
     [SerializeField] int numberOfMountainRanges;
+    public bool currentAxialBias;
     
     // Manages the sprites for the project.
     public Tilemap tileMap;
@@ -37,13 +38,9 @@ public class LandGenerator : MonoBehaviour
     List<GameTile> landTiles = new List<GameTile>();
     List<GameTile> mountainTiles = new List<GameTile>();
     private List<HashSet<GameTile>> mountainClusters = new List<HashSet<GameTile>>(); //contains mountain ranges as hashsets.
-
- 
-
-    private Dictionary<Vector3Int, int> depths = new Dictionary<Vector3Int, int>();
-
     public WeatherManager weatherManager;
 
+    private 
 
 
     void Start()
@@ -57,7 +54,7 @@ public class LandGenerator : MonoBehaviour
         testRun();
     }
 
-  
+
     private void SetGridData() // Sets The grid, initialises array of gametiles, Names them, sets their position in the Tile Map
     {
         equator = mapSizeY / 2; // sets the equator as an int which represents the middle row of the map.
@@ -79,7 +76,7 @@ public class LandGenerator : MonoBehaviour
 
                 int distanceToMid = Mathf.Abs(j - equator);
                 Debug.Log("dist to mid: " + distanceToMid);
-                newTileInstance.SetEquatorDistance(distanceToMid); 
+                newTileInstance.SetEquatorDistance(distanceToMid);
 
                 Vector3Int currentPosition = new Vector3Int(i, j, 0);
                 tileMap.SetTile(currentPosition, waterTile);
@@ -89,7 +86,8 @@ public class LandGenerator : MonoBehaviour
 
         }
 
-    }                     
+        Debug.Log("Grid Data Set");
+    }
 
     private void SetTileNeighbours()  // Calculates the neighbours of each Game Tile in the array, feeds these to the Game Tile
     {
@@ -126,29 +124,13 @@ public class LandGenerator : MonoBehaviour
                 else { }
 
 
-                //Debug.Log("Position" + i + "," + j + " has neighbours(Up, right, down, left)" + neighbours[0].name + neighbours[1].name);
-
-
                 GameTile currentTile = mapGrid[i, j];
                 currentTile.SetNeighbours(neighbours);
 
-
-                //foreach (GameTile gameTile in neighbours)
-                //{
-                //    if (gameTile != null)
-                //    {
-                //        Debug.Log("neighbours" + gameTile.tilePosition);
-                //    }
-                //    else { };
-
-                //}
-
-
             }
 
-
         }
-
+        Debug.Log("Tile Neighbours Set");
 
     }
 
@@ -185,8 +167,8 @@ public class LandGenerator : MonoBehaviour
 
         // move to kingdom setup method 
 
-
         updateMap();
+        testRun();
     }
 
     private void RandomWalker(int maxSteps)
@@ -286,7 +268,7 @@ public class LandGenerator : MonoBehaviour
             mapGrid = newStateGrid;
 
         }
-    } //iterates over land (only land) and smooths its edges.
+    }                                  //iterates over land (only land) and smooths its edges.
 
     private int CountNoLandNeighbours(GameTile currentTile)
     {
@@ -307,12 +289,10 @@ public class LandGenerator : MonoBehaviour
         }
 
         return (landCount);
-    } // records the number of land tiles for the game of life / cellular automata algorithm
+    }                                  // records the number of land tiles for the game of life / cellular automata algorithm
 
     private void CreateMountainRanges(int numberOfRanges) 
     {
-        int lowerRangeLength = mapSizeX + mapSizeY / 10;                                        //Get smaller size as percentage of map size
-        int upperRangeLength = mapSizeX + mapSizeY / 2;                                         //Get larger size as percentage of map size
 
         int upperSpineLength = Mathf.FloorToInt(mapSizeX / 3);                                  // ensure this remains an Int 
         int lowerSpineLength = Mathf.FloorToInt(mapSizeX / 9);                                  // ensures this remains an Int 
@@ -322,67 +302,80 @@ public class LandGenerator : MonoBehaviour
             int landListLength = landTiles.Count;                                               // Accesses all land tiles
             int randomTileEntry = UnityEngine.Random.Range(0, landListLength);                  // Selects random tile from all land tiles
             GameTile selectedTile = landTiles[randomTileEntry];                                 // Selects and assigns random tile entry.
-           // int randomLength = UnityEngine.Random.Range(lowerRangeLength, upperRangeLength);
+                                                                                                // int randomLength = UnityEngine.Random.Range(lowerRangeLength, upperRangeLength);
             int spineLength = UnityEngine.Random.Range(lowerSpineLength, upperSpineLength);     // Sets the length of the Mountain range spine. 
-           // int currentSteps = 0; 
-            HashSet<GameTile> mountainCluster = setSpine(selectedTile, spineLength);            //passes this to a set spine method which outputs hash for that mountain range
+            Debug.Log("spine length: " + spineLength);
+            bool currentAxialBias = UnityEngine.Random.value > 0.5f;                                     // int currentSteps = 0; 
+            int numberOfSpurs = Mathf.FloorToInt(spineLength / 10); 
+            HashSet<GameTile> mountainCluster = setSpine(selectedTile, spineLength, currentAxialBias, numberOfSpurs);   //passes this to a set spine method which outputs hash for that mountain range
 
+            //if statement for current axial bias - if true it biases x if false biases y
 
-
-            //set the start point to a land tile and get it only to move to land tiles
-
-            //while (currentSteps < randomLength)
-            //{
-
-            //    if (selectedTile != null)
-            //    {
-
-            //        selectedTile.SetMountains(true);
-            //        mountainTiles.Add(selectedTile); 
-
-            //        int randomDirectionOne = UnityEngine.Random.Range(0, 4); //0 to 3 is up | right | down | left.
-            //        int randomDirectionTwo = UnityEngine.Random.Range(0, 4);
-            //        int randomDirection = randomDirectionOne;
-
-            //        GameTile tileToCheck = MoveToNeighbour(selectedTile, randomDirection);
-
-            //        if (tileToCheck.isLand)
-            //        {
-            //            selectedTile = tileToCheck;
-            //            currentSteps++;
-            //        }
-            //        else
-            //        {
-            //            randomDirection = randomDirectionTwo;
-            //        }
-
-
-
-            //    }
-
-
-            //} 
-
+            // Next we need to decide how many spurs that we are going to have per spine 
+            // We need to generate those spurs off the spine. This should probably be a percentage of the overall length.
+            // before or after the spurs we should add a buffer to thicken out the mountains. 
+            // add these to a hash set and use union with to join them.
+            // iterate over the tiles, set tiles in hashset to mountains.
 
         }
 
 
     }
 
-    private HashSet<GameTile> setSpine(GameTile selectedTile, int spineLength)              // set spine method takes in current tile & the length of the mountain spine and spits out a hash set.  
+    private HashSet<GameTile> setSpine(GameTile selectedTile, int spineLength, bool currentAxialBias, int numberOfSpurs)
     {
-        bool axialBiasX = UnityEngine.Random.value > 0.5f;                                  // rando float between 0.0 & 1.0 so 50:50 random choice 
+        bool axialBiasX = currentAxialBias;                                                 // rando float between 0.0 & 1.0 so 50:50 random choice 
         int currentStep = 0;                                                                // resets step value
         HashSet<GameTile> spine = new HashSet<GameTile>();                                  // $$$ would be good to auto name these mountain ranges at some point $$$
-        //add first tile here
+                                                                                            //add first tile here
 
-        GameTile tileToProcess = selectedTile;                                              // start tile set 
+        // start tile set 
         int randomDirectionOne = 0;                                                         // initialises variable
         int randomDirectionTwo = 0;                                                         // initialises variable    
         int directionToCheck;                                                               // sets the direction to check based upon axial bias (see below)  
+        int spurCounter = numberOfSpurs;
+
+        Debug.Log("reaches to before while loop");
 
         while (currentStep < spineLength)                                                   // iterates through as long as the current step in process is less than spine length
         {
+            Debug.Log("reaches inside of while loop");
+
+            GameTile tileToProcess = selectedTile;
+            int upperThreshold = Mathf.FloorToInt(spineLength / numberOfSpurs);
+            int lowerthreshould = 5;
+            int chanceOfSpur = UnityEngine.Random.Range(0, 10);
+            int spurLength = UnityEngine.Random.Range(lowerthreshould, upperThreshold);
+
+            if (chanceOfSpur > 7 && spurCounter > 0)
+            {
+                GameTile spurTile = tileToProcess;
+                for (int i = 0; i < spurLength; i++)
+                {
+                    int randomSpurDirection = UnityEngine.Random.Range(0, 4);
+                    GameTile spurTileToCheck = MoveToNeighbour(spurTile, randomSpurDirection);
+
+                    if (spurTileToCheck != null && spurTileToCheck.isLand)
+                    {
+                        spurTile = spurTileToCheck;
+                        spurTile.SetMountains(true);
+                        spine.Add(spurTileToCheck);
+                    }
+                    else
+                    {
+                        randomSpurDirection = UnityEngine.Random.Range(0, 4);
+                    }
+
+
+                }
+
+                // needs to take in current tile run a process on the tile and return to
+
+                spurCounter--;
+            }
+
+            //Debug.Log("Spur method hit");
+
             if (tileToProcess != null)                                                      // Null check 
             {
                 tileToProcess.SetMountainSpine(true);                                       // Setts instance of GameTile to mountain spine (i.e. big mountain) 
@@ -411,7 +404,7 @@ public class LandGenerator : MonoBehaviour
                     }
 
 
-                }                                                                           
+                }
                 else // bias Y
                 {
                     float[] biasedWeightsY = { 1f, 2f, 1f, 2f };
@@ -437,9 +430,9 @@ public class LandGenerator : MonoBehaviour
 
                     }
 
-                    
+
                 }                                                                     // if axialbiasX is not true (bias Y instead).                        
-                
+
                 directionToCheck = randomDirectionOne;                                      // once the stupidly big IF statements have run we bias the direction of the mountains
 
                 GameTile tileToCheck = MoveToNeighbour(tileToProcess, directionToCheck);    // we check the neighbours using ol'reliable which feeds the current tile
@@ -455,11 +448,12 @@ public class LandGenerator : MonoBehaviour
                     directionToCheck = randomDirectionTwo;
                 }
 
+                
             }
-        }
-        
-        return spine; 
 
+        }
+
+        return spine;
     }
 
     private void SetClimateZones() 
@@ -568,14 +562,17 @@ public class LandGenerator : MonoBehaviour
         {
             GameTile currentTile = gameTile;
 
-            int distanceToMid = currentTile.distanceFromEquator;
-            string tileName = currentTile.name;
+            if (currentTile.isMountain)
+            {
+                Debug.Log("GameTile no: " + currentTile.name + "is set to mountains");
 
-            Debug.Log("Tile name: " + tileName + " Distance to equator: " + distanceToMid);
+            }
+ 
+
+
 
         }
 
-        weatherManager.GenerateClouds(mapSizeX, mapSizeY);
 
     }
 
