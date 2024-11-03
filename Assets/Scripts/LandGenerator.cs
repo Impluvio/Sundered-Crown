@@ -17,18 +17,23 @@ public class LandGenerator : MonoBehaviour
     [Tooltip("this will 'smooth' the map the higher it is set")] [SerializeField] int cellAutIterations;
     // Sets the middle row of the map    
     int equator;
+    int bufferZoneStart; 
 
     // Sets number of mountain ranges
     [SerializeField] int numberOfMountainRanges;
-    public bool currentAxialBias;
-    
+
+    // sets number of forests
+    [Tooltip("sets number of forests")] [SerializeField] int numberOfForests;
+
     // Manages the sprites for the project.
     public Tilemap tileMap;
     public TileBase waterTile; // NOTE: look at pulling tile type from the tilePallette which you populate in the editor. EXAMPLE:    TileBase tile = tilePalette.GetTile(0);
     public TileBase landTile;  // maybe these should be stored on the tile itself. 
-    public TileBase MountainTile;
-    public TileBase SnowTile;
-    public TileBase SnowMountainTile;
+    public TileBase mountainTile;
+    public TileBase snowTile;
+    public TileBase snowMountainTile;
+    public TileBase forestTile;
+    public TileBase forestTileSnow;
 
     // Manages the array data structure for the 'Game Tile classes' 
 
@@ -51,7 +56,7 @@ public class LandGenerator : MonoBehaviour
         SetGridData();
         SetTileNeighbours();
         GenerateLandmasses();
-        testRun();
+        //testRun();
     }
 
 
@@ -155,11 +160,8 @@ public class LandGenerator : MonoBehaviour
 
         SetClimateZones();
 
-        // fault line progression algorithm to set the mountain ranges
-        // maybe for this, set a straighter walker and along the line, set a number of branches so that the range has more character. 
-        // add a height aspect to the gameTile for this. 
-
-        // Algorithm to set north south cold areas and cold 
+        CreateForests(numberOfForests);
+     
 
         // temporate and arboreal forest seeding / growth 
 
@@ -168,7 +170,7 @@ public class LandGenerator : MonoBehaviour
         // move to kingdom setup method 
 
         updateMap();
-        testRun();
+        //testRun();
     }
 
     private void RandomWalker(int maxSteps)
@@ -294,7 +296,7 @@ public class LandGenerator : MonoBehaviour
     private void CreateMountainRanges(int numberOfRanges) 
     {
 
-        int upperSpineLength = Mathf.FloorToInt(mapSizeX / 3);                                  // ensure this remains an Int 
+        int upperSpineLength = Mathf.FloorToInt(mapSizeX * 3);                                  // ensure this remains an Int 
         int lowerSpineLength = Mathf.FloorToInt(mapSizeX / 9);                                  // ensures this remains an Int 
 
         for (int i = 0; i < numberOfMountainRanges; i++)                                        // iterates over mountain range number.
@@ -304,10 +306,10 @@ public class LandGenerator : MonoBehaviour
             GameTile selectedTile = landTiles[randomTileEntry];                                 // Selects and assigns random tile entry.
                                                                                                 // int randomLength = UnityEngine.Random.Range(lowerRangeLength, upperRangeLength);
             int spineLength = UnityEngine.Random.Range(lowerSpineLength, upperSpineLength);     // Sets the length of the Mountain range spine. 
-            Debug.Log("spine length: " + spineLength);
-            bool currentAxialBias = UnityEngine.Random.value > 0.5f;                                     // int currentSteps = 0; 
+            //Debug.Log("spine length: " + spineLength);
+            //Debug.Log("selected tile is: " + selectedTile.name);
             int numberOfSpurs = Mathf.FloorToInt(spineLength / 10); 
-            HashSet<GameTile> mountainCluster = setSpine(selectedTile, spineLength, currentAxialBias, numberOfSpurs);   //passes this to a set spine method which outputs hash for that mountain range
+            HashSet<GameTile> mountainCluster = setSpine(selectedTile, spineLength, numberOfSpurs);   //passes this to a set spine method which outputs hash for that mountain range
 
             //if statement for current axial bias - if true it biases x if false biases y
 
@@ -322,33 +324,137 @@ public class LandGenerator : MonoBehaviour
 
     }
 
-    private HashSet<GameTile> setSpine(GameTile selectedTile, int spineLength, bool currentAxialBias, int numberOfSpurs)
+    private void CreateForests(int numberOfForests)
     {
-        bool axialBiasX = currentAxialBias;                                                 // rando float between 0.0 & 1.0 so 50:50 random choice 
+        int largeForests = numberOfForests * 2;
+        int smallForests = numberOfForests * 10;
+
+        int forestSizeLargeUpper = mapSizeX * 4;
+        int forestSizeLargeLower = mapSizeX * 2;
+        int forestSizeSmallUpper = mapSizeX / 2;
+        int forestSizeSmallLower = mapSizeX / 5;
+
+        //mechanism to ensure forests spawn outside of polar zone.
+
+        int temperateBounds = Mathf.FloorToInt(mapSizeX / 100 * 70);
+        int boundsHalved = Mathf.FloorToInt(temperateBounds / 2);
+        int mapMidline = equator;
+        int arborealRangeNorth = equator + boundsHalved;
+        int arborealRangeSouth = equator - boundsHalved;
+        int randomRowInRange;
+        int randomcolumn;
+        // set the equator from global variable
+        // add a set amount from that equator as a percentage of the overall number of rows
+        // randomise the above,feed into statement [random-clamped, random] to grab tiles in specific region
+
+        
+      
+
+        for (int i = 0; i < largeForests; i++)
+        {
+            randomRowInRange = UnityEngine.Random.Range(arborealRangeNorth, arborealRangeSouth);
+            randomcolumn = UnityEngine.Random.Range(0, mapSizeY);
+            GameTile tileToProcess = mapGrid[randomRowInRange, randomcolumn];
+            
+            GameTile currentTile = tileToProcess;
+            int forestSize = 0;
+            int targetForestSize = UnityEngine.Random.Range(forestSizeLargeLower, forestSizeLargeUpper);
+
+
+
+            while (forestSize < targetForestSize)
+            {
+                if (currentTile.isLand && !currentTile.isMountain)
+                {
+                    currentTile.SetForest(true);
+                    forestSize++;
+                    int randomDirection = UnityEngine.Random.Range(0, 4);
+                    currentTile = MoveToNeighbour(currentTile, randomDirection);
+                }
+                else
+                {
+                    int randomDirection = UnityEngine.Random.Range(0, 4);
+                    currentTile = MoveToNeighbour(currentTile, randomDirection);
+                }
+
+            }
+
+            i++;
+        }
+
+        for (int i = 0; i < smallForests; i++)
+        {
+            randomRowInRange = UnityEngine.Random.Range(arborealRangeNorth, arborealRangeSouth);
+            randomcolumn = UnityEngine.Random.Range(0, mapSizeY);
+            GameTile tileToProcess = mapGrid[randomRowInRange, randomcolumn];
+            GameTile currentTile = tileToProcess;
+            int forestSize = 0;
+            int targetForestSize = UnityEngine.Random.Range(forestSizeSmallLower, forestSizeSmallUpper);
+
+            while (forestSize < targetForestSize)
+            {
+                if (currentTile.isLand && !currentTile.isMountain)
+                {
+                    currentTile.SetForest(true);
+                    forestSize++;
+                    int randomDirection = UnityEngine.Random.Range(0, 4);
+                    currentTile = MoveToNeighbour(currentTile, randomDirection);
+                }
+                else
+                {
+                    int randomDirection = UnityEngine.Random.Range(0, 4);
+                    currentTile = MoveToNeighbour(currentTile, randomDirection);
+                }
+
+            }
+
+            i++;
+        }
+
+
+    }
+
+    private HashSet<GameTile> setSpine(GameTile selectedTile, int spineLength, int numberOfSpurs)
+    {                                                
         int currentStep = 0;                                                                // resets step value
         HashSet<GameTile> spine = new HashSet<GameTile>();                                  // $$$ would be good to auto name these mountain ranges at some point $$$
-                                                                                            //add first tile here
-
-        // start tile set 
-        int randomDirectionOne = 0;                                                         // initialises variable
-        int randomDirectionTwo = 0;                                                         // initialises variable    
+                                                                                            
         int directionToCheck;                                                               // sets the direction to check based upon axial bias (see below)  
         int spurCounter = numberOfSpurs;
-
-        Debug.Log("reaches to before while loop");
+        GameTile tileToProcess = selectedTile;
 
         while (currentStep < spineLength)                                                   // iterates through as long as the current step in process is less than spine length
         {
-            Debug.Log("reaches inside of while loop");
-
-            GameTile tileToProcess = selectedTile;
             int upperThreshold = Mathf.FloorToInt(spineLength / numberOfSpurs);
             int lowerthreshould = 5;
             int chanceOfSpur = UnityEngine.Random.Range(0, 10);
             int spurLength = UnityEngine.Random.Range(lowerthreshould, upperThreshold);
 
+            if (tileToProcess != null)                                                      // Null check 
+            {
+                tileToProcess.SetMountainSpine(true);                                       // Setts instance of GameTile to mountain spine (i.e. big mountain) 
+                // Debug.Log("spine length:  " + spineLength);
+            }
+                                                                             
+            directionToCheck = UnityEngine.Random.Range(0, 4);
+            GameTile tileToCheck = MoveToNeighbour(tileToProcess, directionToCheck);    // we check the neighbours using ol'reliable which feeds the current tile
+                //Debug.Log("Main tile to check after move: " + tileToCheck.name);
+
+             if (tileToCheck.isLand && tileToCheck != null)                                                     // if the tile is land then add it to the spine.
+             {
+                    tileToProcess = tileToCheck;                                            // spine can write over itself (check this).
+                    currentStep++;
+                    spine.Add(tileToProcess);
+             }
+             else
+             {
+                tileToProcess = MoveToNeighbour(tileToProcess, UnityEngine.Random.Range(0, 4));
+             }
+
             if (chanceOfSpur > 7 && spurCounter > 0)
             {
+                // Debug.Log("spur created");
+
                 GameTile spurTile = tileToProcess;
                 for (int i = 0; i < spurLength; i++)
                 {
@@ -372,83 +478,6 @@ public class LandGenerator : MonoBehaviour
                 // needs to take in current tile run a process on the tile and return to
 
                 spurCounter--;
-            }
-
-            //Debug.Log("Spur method hit");
-
-            if (tileToProcess != null)                                                      // Null check 
-            {
-                tileToProcess.SetMountainSpine(true);                                       // Setts instance of GameTile to mountain spine (i.e. big mountain) 
-
-                if (axialBiasX == true)
-                {
-                    float[] biasedWeightsX = { 2f, 1f, 2f, 1f };                            // Array of Floats Biases the Up & Down movements.
-
-                    float totalWeight = 0;                                                  // Declares total weight var
-                    foreach (float weight in biasedWeightsX)                                // looks at each value in weights...    
-                    {
-                        totalWeight += weight;                                              // Adds that weight to total weight (like 2 + 1 + 2 + 1) giving 6  
-                    }
-
-                    float randomValue = UnityEngine.Random.value * totalWeight;             // Gives rando value between 0.0 & 1.0 and times' that, so  0.0-1.0 x 6 *
-
-                    float cumulativeWeight = 0;                                             // Cumulative weight will gradually add the floats in the array together
-                    for (int i = 0; i < biasedWeightsX.Length; i++)                         // loops for as many entries as in the Biased weights array.
-                    {
-                        cumulativeWeight += biasedWeightsX[i];                              // Adds the weighting from the array to the cumulative weight 
-                        if (randomValue < cumulativeWeight)                                 // Adds to cumulative weight, so it will eventually be larger than random value, which then...
-                        {                                                                   // Naturally biases the weights with the higher number to begin with as they add more to cumulative weight
-                            randomDirectionOne = i;                                         // selects between 1,2,3,4 from the array once the cumulative weight is above random 
-                            randomDirectionTwo = UnityEngine.Random.Range(0, 4);            // sets other direction to a random between the 4 cardinal points.
-                        }                                                                   // stupidly big if statement, would poss be better as separate method.    
-                    }
-
-
-                }
-                else // bias Y
-                {
-                    float[] biasedWeightsY = { 1f, 2f, 1f, 2f };
-
-                    float totalWeight = 0;
-                    foreach (float weight in biasedWeightsY)
-                    {
-                        totalWeight += weight;
-                    }
-
-                    float randomValue = UnityEngine.Random.value * totalWeight; // Sets the total weight as a number BETWEEN 0.0 & 1.0 * the added floats in the biased array 
-
-                    float cumulativeWeight = 0;                                 // Cumulative weight will gradually add the floats in the array together
-                    for (int i = 0; i < biasedWeightsY.Length; i++)
-                    {
-                        cumulativeWeight += biasedWeightsY[i];                  // Add the weights, with each round this goes higher so the chance of being under increases
-                        if (randomValue < cumulativeWeight)
-                        {
-                            randomDirectionOne = i;
-                            randomDirectionTwo = UnityEngine.Random.Range(0, 4);
-
-                        }
-
-                    }
-
-
-                }                                                                     // if axialbiasX is not true (bias Y instead).                        
-
-                directionToCheck = randomDirectionOne;                                      // once the stupidly big IF statements have run we bias the direction of the mountains
-
-                GameTile tileToCheck = MoveToNeighbour(tileToProcess, directionToCheck);    // we check the neighbours using ol'reliable which feeds the current tile
-
-                if (tileToCheck.isLand)                                                     // if the tile is land then add it to the spine.
-                {
-                    tileToProcess = tileToCheck;                                            // spine can write over itself (check this).
-                    currentStep++;
-                    spine.Add(tileToProcess);
-                }
-                else
-                {
-                    directionToCheck = randomDirectionTwo;
-                }
-
-                
             }
 
         }
@@ -536,21 +565,24 @@ public class LandGenerator : MonoBehaviour
             if (currentTile.isLand)
             {
                 tileMap.SetTile(currentTile.tilePosition, landTile);
-
             }
             if (currentTile.isMountain)
             {
-                tileMap.SetTile(currentTile.tilePosition, MountainTile);
+                tileMap.SetTile(currentTile.tilePosition, mountainTile);
             }
-           if(currentTile.isLand && currentTile.isSnowy)
+            if (currentTile.isLand && currentTile.isSnowy)
             {
-                tileMap.SetTile(currentTile.tilePosition, SnowTile);
+                tileMap.SetTile(currentTile.tilePosition, snowTile);
             }
             if (currentTile.isMountain && currentTile.isSnowy)
             {
-                tileMap.SetTile(currentTile.tilePosition, SnowMountainTile);
+                tileMap.SetTile(currentTile.tilePosition, snowMountainTile);
             }
-
+            if (currentTile.isLand && currentTile.isForest)
+            {
+                tileMap.SetTile(currentTile.tilePosition, forestTile);
+            }
+            
 
         }
 
@@ -577,10 +609,4 @@ public class LandGenerator : MonoBehaviour
     }
 
 
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

@@ -244,8 +244,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 92.14391, y: 103.46354, z: -189.675}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -390,14 +390,16 @@ MonoBehaviour:
   numberOfLargeWalkers: 2
   numberOfSmallWalkers: 8
   cellAutIterations: 4
-  numberOfMountainRanges: 50
-  currentAxialBias: 0
+  numberOfMountainRanges: 20
+  numberOfForests: 10
   tileMap: {fileID: 1297541755}
   waterTile: {fileID: 11400000, guid: bb977c14c81b5c843ac1a05c171a6a3c, type: 2}
   landTile: {fileID: 11400000, guid: 293d53e0746ef8b479acefb742c10f04, type: 2}
-  MountainTile: {fileID: 11400000, guid: 2b2d9adea5e049d4db305907d0b0c89a, type: 2}
-  SnowTile: {fileID: 11400000, guid: 42c36488da3ec264d9a19158205972cc, type: 2}
-  SnowMountainTile: {fileID: 11400000, guid: 0070219b8aba8804391b06de317d336d, type: 2}
+  mountainTile: {fileID: 11400000, guid: 2b2d9adea5e049d4db305907d0b0c89a, type: 2}
+  snowTile: {fileID: 11400000, guid: 42c36488da3ec264d9a19158205972cc, type: 2}
+  snowMountainTile: {fileID: 11400000, guid: 0070219b8aba8804391b06de317d336d, type: 2}
+  forestTile: {fileID: 11400000, guid: d870c3954ad058540bd4692e39ee0207, type: 2}
+  forestTileSnow: {fileID: 11400000, guid: 9eeb62e3bd5cb114783082c7bdeb0d06, type: 2}
   weatherManager: {fileID: 0}
 --- !u!1 &1330646900
 GameObject:

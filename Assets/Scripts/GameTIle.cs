@@ -17,6 +17,7 @@ public class GameTile
     public bool isMountain;
     public bool isLargeMountain;
     public bool isSnowy;
+    public bool isForest;
     public GameTile[] tileNeighbours;
     [Range(-10, 10)] public int elevation;  // 0 is sea level.
     public int distanceFromEquator;         // this is a abs. row from the equator the equator being 0 and 1 being one row above or below equator etc.
@@ -25,7 +26,7 @@ public class GameTile
     public GameTile(int xCoordinate, int yCoordinate)
     {
         tilePosition = new Vector3Int(xCoordinate, yCoordinate, 0); //we were declaring a new varible here by putting vector3Int in front of tilePosition.
-        spriteList = new List<string> { "water", "sand", "grass", "mountain","Large Mountain" };
+        spriteList = new List<string> { "water", "sand", "grass", "mountain","Large Mountain","forest" };
         string currentSprite = "water";
 
 
@@ -51,6 +52,7 @@ public class GameTile
     }
 
     //the below bools are kinda lazy, we could set these bools and then check them at the end.
+    //switch these to quick if statements. 
 
     public void SetLandOrSea(bool isItLand)
     {
@@ -61,7 +63,7 @@ public class GameTile
         }
         else
         {
-            //set sprite to water
+            //set sprite to water (remains water);
         }
     }
 
@@ -79,7 +81,7 @@ public class GameTile
 
     }
 
-    public void SetMountainSpine(bool isItLargemountain) // be aware that there isa weakness here in the code as it is highly dependant on execution order.
+    public void SetMountainSpine(bool isItLargemountain) // be aware that there is a weakness here in the code as it is highly dependant on execution order.
     {
         isLargeMountain = isItLargemountain;
         if (isLargeMountain == true);
@@ -89,15 +91,25 @@ public class GameTile
 
     }
 
+    public void SetForest(bool isItForest)
+    {
+        isForest = isItForest;
+        if (isForest == true)
+        {
+            currentSprite = spriteList[5];
+        }
+        else
+        {
 
-
+        }
+    }
 
     public void SetSnow(bool isItArtic)
     {
         isSnowy = isItArtic;
         if(isSnowy == true)
         {
-
+         
         }
     }
         
