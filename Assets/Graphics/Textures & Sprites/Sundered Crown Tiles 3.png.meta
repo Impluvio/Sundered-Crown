@@ -1,0 +1,2853 @@
+fileFormatVersion: 2
+guid: 7b586ad9729a4ab4d8cd774c04fe4616
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dccd86a92c407114182fc9c1c7a9156f
+      internalID: -353847766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615aefb0c86d83344a4293fbb0f29de8
+      internalID: 1182123389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 025d3a09adc933840998a5700dc63757
+      internalID: 581063146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d31dbfa3310e0c4469483f4326bb3505
+      internalID: -745416218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mountain_New
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f489f36ae6b7bb48be0a567622edf89
+      internalID: -871659644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00d9d84480f6e044a5b8a5c378c146b
+      internalID: 1996057503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d9a691774076b4a818595129364129
+      internalID: 775458659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 4064
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c74f7b88ebb1a4db5509b153ba30d0
+      internalID: 199604908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3fa24f484e1654297128aaf6553097
+      internalID: 1366031582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5eb5a73c1c837d84aab0e9bc3340be72
+      internalID: 1219838833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c560c834f9e9e504095be65260d267db
+      internalID: 2064453725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad022c4a915c2e47bf9fd79e350b968
+      internalID: 795467094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704e7156587cd5e4790f39127a310fda
+      internalID: -1624065990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9fb7980f73642a45aff15b8c45108de
+      internalID: -16443034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_14
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1a90ccd6cd5794d92fd706554bce5b
+      internalID: 1372052139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93afc5779c8fe44b8ea6a7b4dae3236
+      internalID: -804159094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_16
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed5462f7fd580dc4688d38a3f29b516d
+      internalID: 366920264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf338b7d614b9041a9674f50221e30a
+      internalID: -82968258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_18
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73c3f2b17a4e1184a9246d43f869c864
+      internalID: -982774623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_19
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0abd10658b1cdf0439286e20ee812df3
+      internalID: -353564351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_20
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd838f66c30c0324cb88d5e01bac6c02
+      internalID: 1724708557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_21
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0564895da6b26af4a907923aea12c367
+      internalID: 125499174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_22
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4f90628ed9f334484030d0a017b69d
+      internalID: 1298201370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_23
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11a0a659691b28459a09685c563d4fa
+      internalID: -901217677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_24
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96620b7ce63b1534a83383a74e653665
+      internalID: -2042002795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_25
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 4000
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01416c68d91dc074193df1948def7fee
+      internalID: -1391662784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_26
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1032c9372923aaf48b63970f1eb8621f
+      internalID: -2088122674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_27
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e01adfce2cf98042a33b444291c9173
+      internalID: 1400577241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4c4e8f6cbf98a94085b058e084d0722
+      internalID: -2055617897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f0b28db1ca53a4cbe2a037e2c879e7
+      internalID: -1677442323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_30
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9db29e54463d384ba14683c48c49f2c
+      internalID: -377297394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_31
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e37d85aad266a34eb2e2aa4de998767
+      internalID: 1887149035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_32
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb84381b1bb3314790ed241fd8bfa55
+      internalID: 544221358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_33
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00bf44537e386124e99a6c0f4ee059da
+      internalID: -946991099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_34
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c990424103f1544ae7372d352f6344
+      internalID: -1904288909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_35
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f852011464d7b4698e008b0d9b3611
+      internalID: 1309211141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_36
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49486a30a0f6070439d9b116c66e0764
+      internalID: 979598477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_37
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8fe495729a082a43ab7d7a701bb5932
+      internalID: 820475196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_38
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e761122578ac8c24a83d22a86c4c0e28
+      internalID: 1049121661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_39
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e69991ffdbbe6eb47845b7db34916af6
+      internalID: 1771561291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_40
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce3f6c738e479f488433416f87fb193
+      internalID: -939588917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_41
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227331e7b8c08c841b873388140c5c7e
+      internalID: 1667647389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_42
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a07b0f71f75f8b48ad370afa4f9d919
+      internalID: -2065032620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_43
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0462839dac93f374098ef24c34977ba4
+      internalID: 2022447401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_44
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be9c7fd628e7ba84898fba87b21830cf
+      internalID: -1236955786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_45
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3968
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f00325a04bf5b9e4d9eb6416d2581172
+      internalID: 1677203635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_46
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2436ec16e50ada245ab38060a4a5bc0d
+      internalID: 128155287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_47
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5568fcc151fd46f469a4b88944894020
+      internalID: -292232514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_48
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccfd57dacba64534ea1922063d7a7f86
+      internalID: -1715277915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_49
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037955b588c739f4eb9598bc4fb39379
+      internalID: 628313370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_50
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e045f8c813a1548ab94a7ad5a2cacc
+      internalID: -2084482606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_51
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e5568eddd90ed949a8c2064ae566d2f
+      internalID: -1127154155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_52
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65423601bb109eb4cbdbf487b395f564
+      internalID: 1719171138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_53
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1267dbcbe51555439f3c5f259803bea
+      internalID: -1457729721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_54
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e443bf1adb641f419bceb36a23f8317
+      internalID: 313864539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_55
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3fd44c05291fd4cadd8ac1573a2489
+      internalID: -991459571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_56
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8741d7933fb4a5741a3d043bcfeb9f0b
+      internalID: 554814346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_57
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23f81776c595cbb45b0da939531d9f92
+      internalID: -964795174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_58
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2fe4ec4b7f390c4f893aa381529de12
+      internalID: 409427423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_59
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4d04dcfb17448498acbc99e593a875
+      internalID: 634833134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_60
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67cffda337f5f0647926e8939f523f96
+      internalID: 571947231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_61
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0800f566eea442945aa53a5d3a83d9a6
+      internalID: 1930429364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_62
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5d3d442e12fe24a9cdd83cc2b8f8d8
+      internalID: -2047332147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_63
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed28725a0313c284f83729bdb939148a
+      internalID: -972499290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_64
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9db64822a8588a44a6ee48026281981
+      internalID: -1754425241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_65
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5d50e9c3f1dc3644b09f14d5ce14515
+      internalID: -1165145747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_66
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3936
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f55b9603308034587defb37afba147
+      internalID: -367888307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03103a122f8f3fb42990a88f531d13e3
+      internalID: -1905771427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_68
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c33c69bd98e8990458f41743e5857eb7
+      internalID: 1886083754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_69
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389430c9c443e474e9a8b3eea1e467ce
+      internalID: 1467766823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_70
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2137cce14c8d6ee49b19b026312d953e
+      internalID: 1693866160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_71
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b81050ea78213b4ebfad7565b7c653c
+      internalID: -559328302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_72
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf18c7f7f5dbdda4d8b87b9ad13da649
+      internalID: 1912579604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_73
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd23fc0fd9cc58448a81795e788dc4f
+      internalID: -1686119030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_74
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f98a00ccaa223d429f9a103e7d50715
+      internalID: 467554475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_75
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eacb4017b9cff24d80ed96d56803145
+      internalID: -1735992132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_76
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a045aa52d4f410842989df46c22a90e0
+      internalID: -972377103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_77
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08a35b6e000678a4bb92ee2a5aca1b27
+      internalID: -1902499110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_78
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913a14acd71877f4284c236b871dbdbd
+      internalID: 503732842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_79
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 3904
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef74ce116e82db34db2e35c93ae87dc2
+      internalID: -943159878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_80
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3872
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c912fd1ecb1a12340bbff2ed129c1706
+      internalID: 1318712577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_81
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3872
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ca38e1530498534d85af7167c783848
+      internalID: -960644990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_82
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3872
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad4b34c2c8e538408192df496171c34
+      internalID: -58895889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_83
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3840
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ead0bc2fa50eb044a76454e3142b5e0
+      internalID: 747519208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_84
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3840
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fadb463c8456504a86396ed240c9c44
+      internalID: -1925702455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_85
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3840
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff3259111259d2d42ab990bd16c1ac24
+      internalID: 2090484617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_86
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efd2f4b0e944e924aa6ed330a97b4e29
+      internalID: 627346832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_87
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad3c3648641771c468fbe9267e8ab3e6
+      internalID: -775875267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_88
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d34a2aa0653708247a8477729670307d
+      internalID: 1946684221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_89
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0de84d1d31a55144ab09bc2d771b8db4
+      internalID: -1034734322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_90
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182b38f198ef08947af897adae98bcb2
+      internalID: -1700662883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_91
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1184eb30b2671634e81048eeb6fd6091
+      internalID: 1145148379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_92
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbba6ba4c932dc9478b0025350b4d5d4
+      internalID: 1087313419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_93
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3808
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fdd524cda87fc4192a9ed0a89d5e41
+      internalID: -1511421146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_94
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e61463f9ffc2164ca00a6adfeeb5da5
+      internalID: 1053392429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_95
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98585ad08df510543959b705eea134a3
+      internalID: 610167804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_96
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d8c83be8f09f464c8bd46f642f0b505
+      internalID: 1536557921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_97
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 976b1275f9592ff45bb0587654a0b39e
+      internalID: -1490370978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_98
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316efb0c7bdaa7d47b2c145f4fb94435
+      internalID: -201829761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_99
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd8d2dfe5b4198246a43cbfbbf8b8601
+      internalID: 1547588687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_100
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7b8eb9d8bce0594fafd98c753a41cc6
+      internalID: 1738657775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_101
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ce31fb3555a1c48a0b1e0ada8290a8
+      internalID: -407378123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_102
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58981cc509876dd4a9c97751a91cdb2e
+      internalID: -1058871871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_103
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9997ecef1313dcf4581c950ca20aabb7
+      internalID: -1777519289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_104
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 3776
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de16b27f928266a46809fbce600f831c
+      internalID: 1336520040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_105
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b902bca51cd9e0459e0b047c31919e3
+      internalID: 133182941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_106
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe7f4eb79aa18c44787af6bf878b61fa
+      internalID: -1175738183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_107
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751ebdfb6d6cda34d9bd6e57db2fe324
+      internalID: 442906761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_108
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dbd82c27a7450d4d88df281700dad5f
+      internalID: 760461644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_109
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d120b4f263c654c4695990c691f140e4
+      internalID: -1223263736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_110
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b3a2e38569fbb8489b9dabbe4865501
+      internalID: 1044723139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_111
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24be03112b22bfd418c8fb50691fb74d
+      internalID: 1569040035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_112
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6f85abf1abd35e4a9f2a5467820e640
+      internalID: -1687235942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_113
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225f134e79123c4459a99dc76e1d3327
+      internalID: -1505868726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_114
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 3744
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66cafccc3a8b23442b0ab341558f0fd1
+      internalID: -1938131574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_115
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f0f906d91990440aa9485791522319
+      internalID: -2068104184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_116
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fed18f1c03108144acc1596f502549c
+      internalID: 1936266658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_117
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea9cfa3fa0666d499d10a1ad8e86393
+      internalID: 2038953865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_118
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d911a699b277ea49b509ee87ae23a04
+      internalID: -2125079653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_119
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66322e975cca8a4d8e7f719197572b6
+      internalID: -68706773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_120
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9855ca979f4a5f9459d04a69709a90e6
+      internalID: 1029204594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_121
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c4f20ad638fe244c9cbfb46d83bcfb9
+      internalID: -586080289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sundered Crown Tiles 3_122
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3712
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42f5fb032b71a1744a3e01870752fcaa
+      internalID: 1109663602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Sundered Crown Tiles 3_94: 1053392429
+      Sundered Crown Tiles 3_10: 2064453725
+      Sundered Crown Tiles 3_32: 544221358
+      Sundered Crown Tiles 3_40: -939588917
+      Sundered Crown Tiles 3_119: -68706773
+      Sundered Crown Tiles 3_96: 1536557921
+      Sundered Crown Tiles 3_60: 571947231
+      Sundered Crown Tiles 3_56: 554814346
+      Sundered Crown Tiles 3_85: 2090484617
+      Sundered Crown Tiles 3_66: -367888307
+      Sundered Crown Tiles 3_27: 1400577241
+      Sundered Crown Tiles 3_21: 125499174
+      Sundered Crown Tiles 3_79: -943159878
+      Sundered Crown Tiles 3_22: 1298201370
+      Sundered Crown Tiles 3_63: -972499290
+      Sundered Crown Tiles 3_73: -1686119030
+      Sundered Crown Tiles 3_122: 1109663602
+      Sundered Crown Tiles 3_102: -1058871871
+      Sundered Crown Tiles 3_16: 366920264
+      Sundered Crown Tiles 3_31: 1887149035
+      Sundered Crown Tiles 3_120: 1029204594
+      Sundered Crown Tiles 3_105: 133182941
+      Sundered Crown Tiles 3_49: 628313370
+      Sundered Crown Tiles 3_87: -775875267
+      Sundered Crown Tiles 3_121: -586080289
+      Sundered Crown Tiles 3_80: 1318712577
+      Sundered Crown Tiles 3_36: 979598477
+      Sundered Crown Tiles 3_103: -1777519289
+      Sundered Crown Tiles 3_88: 1946684221
+      Sundered Crown Tiles 3_38: 1049121661
+      Sundered Crown Tiles 3_71: -559328302
+      Sundered Crown Tiles 3_116: 1936266658
+      Sundered Crown Tiles 3_2: 581063146
+      Sundered Crown Tiles 3_84: -1925702455
+      Sundered Crown Tiles 3_50: -2084482606
+      Sundered Crown Tiles 3_46: 128155287
+      Sundered Crown Tiles 3_9: 1219838833
+      Sundered Crown Tiles 3_98: -201829761
+      Sundered Crown Tiles 3_0: -353847766
+      Sundered Crown Tiles 3_82: -58895889
+      Sundered Crown Tiles 3_41: 1667647389
+      Sundered Crown Tiles 3_64: -1754425241
+      Sundered Crown Tiles 3_72: 1912579604
+      Sundered Crown Tiles 3_58: 409427423
+      Sundered Crown Tiles 3_14: 1372052139
+      Sundered Crown Tiles 3_7: 199604908
+      Sundered Crown Tiles 3_44: -1236955786
+      Sundered Crown Tiles 3_39: 1771561291
+      Sundered Crown Tiles 3_65: -1165145747
+      Sundered Crown Tiles 3_97: -1490370978
+      Sundered Crown Tiles 3_11: 795467094
+      Sundered Crown Tiles 3_37: 820475196
+      Sundered Crown Tiles 3_1: 1182123389
+      Sundered Crown Tiles 3_91: 1145148379
+      Sundered Crown Tiles 3_17: -82968258
+      Sundered Crown Tiles 3_114: -1938131574
+      Sundered Crown Tiles 3_93: -1511421146
+      Sundered Crown Tiles 3_115: -2068104184
+      Sundered Crown Tiles 3_29: -1677442323
+      Sundered Crown Tiles 3_42: -2065032620
+      Sundered Crown Tiles 3_74: 467554475
+      Sundered Crown Tiles 3_61: 1930429364
+      Sundered Crown Tiles 3_118: -2125079653
+      Sundered Crown Tiles 3_68: 1886083754
+      Sundered Crown Tiles 3_3: -745416218
+      Sundered Crown Tiles 3_86: 627346832
+      Sundered Crown Tiles 3_54: 313864539
+      Sundered Crown Tiles 3_23: -901217677
+      Sundered Crown Tiles 3_5: 1996057503
+      Sundered Crown Tiles 3_101: -407378123
+      Sundered Crown Tiles 3_48: -1715277915
+      Sundered Crown Tiles 3_108: 760461644
+      Sundered Crown Tiles 3_53: -1457729721
+      Sundered Crown Tiles 3_57: -964795174
+      Sundered Crown Tiles 3_19: -353564351
+      Sundered Crown Tiles 3_24: -2042002795
+      Sundered Crown Tiles 3_26: -2088122674
+      Sundered Crown Tiles 3_95: 610167804
+      Sundered Crown Tiles 3_107: 442906761
+      Sundered Crown Tiles 3_100: 1738657775
+      Sundered Crown Tiles 3_13: -16443034
+      Sundered Crown Tiles 3_12: -1624065990
+      Sundered Crown Tiles 3_77: -1902499110
+      Sundered Crown Tiles 3_111: 1569040035
+      Sundered Crown Tiles 3_78: 503732842
+      Sundered Crown Tiles 3_52: 1719171138
+      Mountain_New: -871659644
+      Sundered Crown Tiles 3_109: -1223263736
+      Sundered Crown Tiles 3_18: -982774623
+      Sundered Crown Tiles 3_35: 1309211141
+      Sundered Crown Tiles 3_117: 2038953865
+      Sundered Crown Tiles 3_76: -972377103
+      Sundered Crown Tiles 3_45: 1677203635
+      Sundered Crown Tiles 3_30: -377297394
+      Sundered Crown Tiles 3_15: -804159094
+      Sundered Crown Tiles 3_59: 634833134
+      Sundered Crown Tiles 3_70: 1693866160
+      Sundered Crown Tiles 3_92: 1087313419
+      Sundered Crown Tiles 3_28: -2055617897
+      Sundered Crown Tiles 3_8: 1366031582
+      Sundered Crown Tiles 3_25: -1391662784
+      Sundered Crown Tiles 3_55: -991459571
+      Sundered Crown Tiles 3_90: -1700662883
+      Sundered Crown Tiles 3_104: 1336520040
+      Sundered Crown Tiles 3_20: 1724708557
+      Sundered Crown Tiles 3_67: -1905771427
+      Sundered Crown Tiles 3_75: -1735992132
+      Sundered Crown Tiles 3_89: -1034734322
+      Sundered Crown Tiles 3_33: -946991099
+      Sundered Crown Tiles 3_43: 2022447401
+      Sundered Crown Tiles 3_110: 1044723139
+      Sundered Crown Tiles 3_83: 747519208
+      Sundered Crown Tiles 3_106: -1175738183
+      Sundered Crown Tiles 3_69: 1467766823
+      Sundered Crown Tiles 3_51: -1127154155
+      Sundered Crown Tiles 3_34: -1904288909
+      Sundered Crown Tiles 3_112: -1687235942
+      Sundered Crown Tiles 3_47: -292232514
+      Sundered Crown Tiles 3_99: 1547588687
+      Sundered Crown Tiles 3_62: -2047332147
+      Sundered Crown Tiles 3_113: -1505868726
+      Sundered Crown Tiles 3_81: -960644990
+      Sundered Crown Tiles 3_6: 775458659
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

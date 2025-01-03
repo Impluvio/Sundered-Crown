@@ -21,9 +21,10 @@ public class LandGenerator : MonoBehaviour
 
     // Sets number of mountain ranges
     [SerializeField] int numberOfMountainRanges;
-
     // sets number of forests
     [Tooltip("sets number of forests")] [SerializeField] int numberOfForests;
+    // Sets number of desert regions
+    [Range(1, 10)] public int desertRegions;
 
     // Manages the sprites for the project.
     public Tilemap tileMap;
@@ -161,16 +162,48 @@ public class LandGenerator : MonoBehaviour
         SetClimateZones();
 
         CreateForests(numberOfForests);
-     
 
-        // temporate and arboreal forest seeding / growth 
-
-        // Desertification
+        //Desertification(desertRegions);
 
         // move to kingdom setup method 
 
         updateMap();
         //testRun();
+    }
+
+    private void Desertification(int desertRegions) // move this method to above the mountains but before forests.
+    {
+        int desertZonelimit = UnityEngine.Mathf.FloorToInt(equator / 3);
+
+        int desertZoneUpper = equator + desertZonelimit;
+        int desertZoneLower = equator - desertZonelimit; 
+
+        int randomCoordsX = UnityEngine.Random.Range(0, mapSizeX); 
+        int randomCoordsY = UnityEngine.Random.Range(desertZoneLower, desertZoneUpper);
+
+        int desertSizeLow = UnityEngine.Mathf.FloorToInt(mapSizeX / 6);
+        int desertSizeHigh = UnityEngine.Mathf.FloorToInt(mapSizeX / 2);
+
+        for(int i = 0; i < desertRegions; i++)
+        {
+            GameTile randomTile = mapGrid[randomCoordsX, randomCoordsY];
+            int desertSize = UnityEngine.Random.Range(desertSizeLow, desertSizeHigh);
+            int stepCount = 0;
+            while (stepCount < desertSize)
+            {
+                GameTile tileToProcess = randomTile;
+                if (tileToProcess.isLand)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
+
+        }
+
     }
 
     private void RandomWalker(int maxSteps)
@@ -230,7 +263,7 @@ public class LandGenerator : MonoBehaviour
         }
 
         return (tileToMoveFrom);
-    } // utilised by RandomWalker / Create Mountains 
+    } // utilised by RandomWalker / Create Mountains / everything 
 
     private void RunCellularAutomata(int cellAutIterations)
     {
@@ -560,7 +593,31 @@ public class LandGenerator : MonoBehaviour
         foreach (GameTile gameTile in mapGrid)
 
         {
-            GameTile currentTile = gameTile;
+            GameTile currentTile = gameTile;    // use switch statement here with 'when' 
+
+            //switch (currentTile)
+            //{
+            //    case { isLand: true, isSnowy: false, isForest: false }:
+            //        tileMap.SetTile(currentTile.tilePosition, landTile);
+            //        break;
+
+            //    case { isMountain: true, isSnowy: false }:
+            //        tileMap.SetTile(currentTile.tilePosition, mountainTile);
+            //        break;
+
+            //    case { isLand: true, isSnowy: true }:
+            //        tileMap.SetTile(currentTile.tilePosition, snowTile);
+            //        break;
+
+            //    case { isMountain: true, isSnowy: true }:
+            //        tileMap.SetTile(currentTile.tilePosition, snowMountainTile);
+            //        break;
+
+            //    case { isLand: true, isForest: true }:
+            //        tileMap.SetTile(currentTile.tilePosition, forestTile);
+            //        break;
+            //}
+
 
             if (currentTile.isLand)
             {
@@ -582,7 +639,7 @@ public class LandGenerator : MonoBehaviour
             {
                 tileMap.SetTile(currentTile.tilePosition, forestTile);
             }
-            
+
 
         }
 

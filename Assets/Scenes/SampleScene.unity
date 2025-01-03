@@ -392,6 +392,7 @@ MonoBehaviour:
   cellAutIterations: 4
   numberOfMountainRanges: 20
   numberOfForests: 10
+  desertRegions: 0
   tileMap: {fileID: 1297541755}
   waterTile: {fileID: 11400000, guid: bb977c14c81b5c843ac1a05c171a6a3c, type: 2}
   landTile: {fileID: 11400000, guid: 293d53e0746ef8b479acefb742c10f04, type: 2}
